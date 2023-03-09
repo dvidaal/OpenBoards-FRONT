@@ -4,7 +4,7 @@ const ButtonStyled = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${(props) => props.theme.mainButtonColor};
+  background-color: ${(props) => props.theme.colors.mainButtonColor};
   border-radius: ${(props) => props.theme.radiusLoginInputButton};
   width: 163.5px;
   height: 40px;

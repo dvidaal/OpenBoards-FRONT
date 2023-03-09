@@ -1,9 +1,13 @@
-const theme = {
+import { DefaultTheme } from "styled-components";
+
+const theme: DefaultTheme = {
   mainFont: "Montserrat",
-  mainColor: "#fff",
-  inputLoginFormBorder: "1px solid #56585b",
-  inputLoginFormBackground: "#0e0f10",
-  mainButtonColor: "#EB8B2F",
+  colors: {
+    mainColor: "#fff",
+    mainButtonColor: "#EB8B2F",
+    inputLoginFormBackground: "#0E0F10",
+    secondaryColorLogin: "#C8C8C8",
+  },
   radiusLoginInputButton: "25px",
 };
 
