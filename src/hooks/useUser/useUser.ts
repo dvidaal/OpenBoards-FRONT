@@ -4,11 +4,11 @@ import { User } from "../../store/userSlice/types";
 import { loginUserActionCreator } from "../../store/userSlice/userSlice";
 import { CustomTokenPayload, LoginResponse, UserCredentials } from "./types";
 
-export interface userStructure {
+export interface UserStructure {
   loginUser: (userCredentials: UserCredentials) => void;
 }
 
-export const useUser = (): userStructure => {
+export const useUser = (): UserStructure => {
   const dispatch = useAppDispatch();
 
   const apirUrl = process.env.REACT_APP_URL_API;
