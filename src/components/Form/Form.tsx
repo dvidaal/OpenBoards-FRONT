@@ -1,5 +1,6 @@
 import { ThemeProvider } from "styled-components";
-import theme from "../styles/theme";
+import theme from "../../styles/theme";
+import Button from "../Button/Button";
 import FormStyled from "./FormStyled";
 
 const Form = (): JSX.Element => {
@@ -24,6 +25,7 @@ const Form = (): JSX.Element => {
             className="input-login"
           />
         </label>
+        <Button text="Entrar" />
       </FormStyled>
     </ThemeProvider>
   );

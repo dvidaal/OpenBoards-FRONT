@@ -19,7 +19,7 @@ const FormStyled = styled.form`
     display: flex;
     flex-direction: column;
     border: ${(props) => props.theme.inputLoginFormBorder};
-    border-radius: 25px;
+    border-radius: ${(props) => props.theme.radiusLoginInputButton};
     width: 270px;
     height: 40px;
     padding: 10px 16px;
