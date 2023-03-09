@@ -9,6 +9,7 @@ body {
   margin: 0;
   font-family: 'Work Sans', sans serif;
   padding: 30px 10px;
+  background-color: #0E0F10;
   min-height: 100vh;
 }
 
