@@ -29,6 +29,7 @@ button {
   align-items: center;
   border-radius: 20px;
   cursor: pointer;
+  border: none;
 }
 
 h1,
