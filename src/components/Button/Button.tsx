@@ -1,5 +1,3 @@
-import { ThemeProvider } from "styled-components";
-import theme from "../../styles/theme";
 import ButtonStyled from "./ButtonStyled";
 
 interface ButtonProps {
@@ -7,11 +5,7 @@ interface ButtonProps {
 }
 
 const Button = ({ text }: ButtonProps): JSX.Element => {
-  return (
-    <ThemeProvider theme={theme}>
-      <ButtonStyled>{text}</ButtonStyled>
-    </ThemeProvider>
-  );
+  return <ButtonStyled>{text}</ButtonStyled>;
 };
 
 export default Button;
