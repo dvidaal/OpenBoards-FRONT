@@ -1,15 +1,18 @@
 import { ThemeProvider } from "styled-components";
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import theme from "../../styles/theme";
 import LoginForm from "./LoginForm";
+import renderWithProviders from "../../testUtil";
+import GlobalStyles from "../../styles/GlobalStyles";
 
 describe("Given a LoginForm component", () => {
   describe("When rendered", () => {
     test("Then it should show a label with the text 'Username'", () => {
       const textForm = "Username";
 
-      render(
+      renderWithProviders(
         <ThemeProvider theme={theme}>
+          <GlobalStyles />
           <LoginForm />
         </ThemeProvider>
       );

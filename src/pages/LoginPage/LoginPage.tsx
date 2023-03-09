@@ -10,9 +10,9 @@ const LoginPage = (): JSX.Element => {
           alt="Logo Open Boards"
           className="container-login__logo"
         />
-        <h2 className="container-login__slogan">
+        <span className="container-login__slogan">
           Encuentras los juegos, te reservamos la mesa
-        </h2>
+        </span>
         <LoginForm />
       </div>
     </LoginPageStyled>
