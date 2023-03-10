@@ -3,6 +3,7 @@ import { useAppDispatch } from "../../store/hooks";
 import { User } from "../../store/features/user/types";
 import { CustomTokenPayload, LoginResponse, UserCredentials } from "./types";
 import { loginUserActionCreator } from "../../store/features/user/userSlice";
+import { showModalActionCreator } from "../../store/features/ui/uiSlice";
 
 export interface UserStructure {
   loginUser: (userCredentials: UserCredentials) => Promise<void>;
@@ -34,7 +35,11 @@ const useUser = (): UserStructure => {
       dispatch(loginUserActionCreator(userLogin));
 
       localStorage.setItem("token", token);
-    } catch (error) {}
+    } catch (error) {
+      dispatch(
+        showModalActionCreator({ modal: "Wrong Credentials", isError: true })
+      );
+    }
   };
 
   return { loginUser };

@@ -1,5 +1,5 @@
 import ModalPayload from "../../../types/types";
-import { showModalActionCreatoer, uiReducer } from "./uiSlice";
+import { showModalActionCreator, uiReducer } from "./uiSlice";
 
 describe("Given a uiReducer reducer", () => {
   describe("When it receives a showModal action", () => {
@@ -16,7 +16,7 @@ describe("Given a uiReducer reducer", () => {
         isError: true,
       };
 
-      const showModal = showModalActionCreatoer(modalPayload);
+      const showModal = showModalActionCreator(modalPayload);
       const expectedShowModal = uiReducer(initialUiState, showModal);
 
       expect(expectedShowModal).toStrictEqual(modalPayload);

@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import "react-toastify/dist/ReactToastify.css";
 
 const GlobalStyles = createGlobalStyle`
 * {
@@ -36,6 +37,15 @@ h1,
 h2 {
   font-size: 30px;
   margin: 0;
+}
+
+.container{
+  padding: 20px;
+}
+
+:root{
+  --toastify-color-error: #EB8B2F;
+
 }
 `;
 

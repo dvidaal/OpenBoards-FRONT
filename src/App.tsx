@@ -1,12 +1,34 @@
-import { ThemeProvider } from "styled-components";
+import { useEffect } from "react";
+import { ToastContainer } from "react-toastify";
+import { showFeedbackUser } from "./modals/modals";
 import LoginPage from "./pages/LoginPage/LoginPage";
-import theme from "./styles/theme";
+import { useAppSelector } from "./store/hooks";
 
 const App = () => {
+  const { modal } = useAppSelector((state) => state.ui);
+
+  useEffect(() => {
+    if (modal) {
+      showFeedbackUser(modal);
+    }
+  }, [modal]);
+
   return (
-    <ThemeProvider theme={theme}>
+    <div className="container">
+      <ToastContainer
+        className="hola"
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <LoginPage />;
-    </ThemeProvider>
+    </div>
   );
 };
 
