@@ -1,11 +1,10 @@
 import { useState } from "react";
-import { useUser } from "../../hooks/useUser/useUser";
+import useUser from "../../hooks/useUser/useUser";
 import Button from "../Button/Button";
 import LoginFormStyled from "./LoginFormStyled";
 
 const LoginForm = (): JSX.Element => {
   const { loginUser } = useUser();
-
   const [dataFormLogin, setDataFormLogin] = useState({
     username: "",
     password: "",
@@ -25,7 +24,11 @@ const LoginForm = (): JSX.Element => {
   };
 
   return (
-    <LoginFormStyled className="form" onSubmit={handleSubmit}>
+    <LoginFormStyled
+      className="form"
+      autoComplete="off"
+      onSubmit={handleSubmit}
+    >
       <label>
         Username
         <input

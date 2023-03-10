@@ -5,10 +5,10 @@ import { loginUserActionCreator } from "../../store/userSlice/userSlice";
 import { CustomTokenPayload, LoginResponse, UserCredentials } from "./types";
 
 export interface UserStructure {
-  loginUser: (userCredentials: UserCredentials) => void;
+  loginUser: (userCredentials: UserCredentials) => Promise<void>;
 }
 
-export const useUser = (): UserStructure => {
+const useUser = (): UserStructure => {
   const dispatch = useAppDispatch();
 
   const apirUrl = process.env.REACT_APP_URL_API;
@@ -39,3 +39,5 @@ export const useUser = (): UserStructure => {
 
   return { loginUser };
 };
+
+export default useUser;
