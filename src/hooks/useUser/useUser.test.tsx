@@ -2,6 +2,7 @@ import { renderHook } from "@testing-library/react";
 import decodeToken from "jwt-decode";
 import Wrapper from "../../mocks/Wrapper";
 import { store } from "../../store";
+import { showModalActionCreator } from "../../store/features/ui/uiSlice";
 import { User } from "../../store/features/user/types";
 import { loginUserActionCreator } from "../../store/features/user/userSlice";
 import { CustomTokenPayload, UserCredentials } from "./types";
@@ -47,6 +48,25 @@ describe("Given a useUser custom hook", () => {
       await loginUser(userCredentials);
 
       expect(spy).toHaveBeenCalledWith(loginUserActionCreator(mockLogin));
+    });
+
+    test("Then it should call the showModalActionCreator function", async () => {
+      const {
+        result: {
+          current: { loginUser },
+        },
+      } = renderHook(() => useUser(), { wrapper: Wrapper });
+
+      const wrongCredentials: UserCredentials = {
+        username: "wrongUsername",
+        password: "wrongPassword",
+      };
+
+      await loginUser(wrongCredentials);
+
+      expect(spy).toHaveBeenCalledWith(
+        showModalActionCreator({ modal: "Wrong Credentials", isError: true })
+      );
     });
   });
 });

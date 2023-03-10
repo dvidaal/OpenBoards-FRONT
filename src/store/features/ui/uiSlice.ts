@@ -22,4 +22,4 @@ const uiSlice = createSlice({
 });
 
 export const uiReducer = uiSlice.reducer;
-export const { showModal: showModalActionCreatoer } = uiSlice.actions;
+export const { showModal: showModalActionCreator } = uiSlice.actions;

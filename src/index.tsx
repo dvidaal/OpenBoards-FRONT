@@ -7,6 +7,8 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
 import GlobalStyles from "./styles/GlobalStyles";
+import { ThemeProvider } from "styled-components";
+import theme from "./styles/theme";
 
 const container = document.getElementById("root")!;
 const root = createRoot(container);
@@ -14,8 +16,10 @@ const root = createRoot(container);
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <GlobalStyles />
-      <App />
+      <ThemeProvider theme={theme}>
+        <GlobalStyles />
+        <App />
+      </ThemeProvider>
     </Provider>
   </React.StrictMode>
 );
