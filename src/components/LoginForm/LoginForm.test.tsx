@@ -73,9 +73,13 @@ describe("Given a LoginForm component", () => {
       const passwordField = screen.getByPlaceholderText(passwordPlaceholder);
       const buttonLogin = screen.getByRole("button", { name: buttonText });
 
-      await userEvent.type(usernameField, mockUser.username);
-      await userEvent.type(passwordField, mockUser.password);
-      await userEvent.click(buttonLogin);
+      await act(
+        async () => await userEvent.type(usernameField, mockUser.username)
+      );
+      await act(
+        async () => await userEvent.type(passwordField, mockUser.password)
+      );
+      await act(async () => await userEvent.click(buttonLogin));
 
       expect(mockLogin).toHaveBeenCalledWith(mockUser);
     });
