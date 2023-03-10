@@ -1,0 +1,25 @@
+import ModalPayload from "../../../types/types";
+import { showModalActionCreatoer, uiReducer } from "./uiSlice";
+
+describe("Given a uiReducer reducer", () => {
+  describe("When it receives a showModal action", () => {
+    test("Then it should response with the property isError set to true", () => {
+      const initialUiState: ModalPayload = {
+        modal: "",
+        isError: false,
+      };
+
+      const modalMessage = "Wrong credentials";
+
+      const modalPayload: ModalPayload = {
+        modal: modalMessage,
+        isError: true,
+      };
+
+      const showModal = showModalActionCreatoer(modalPayload);
+      const expectedShowModal = uiReducer(initialUiState, showModal);
+
+      expect(expectedShowModal).toStrictEqual(modalPayload);
+    });
+  });
+});
