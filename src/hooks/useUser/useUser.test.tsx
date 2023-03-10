@@ -5,7 +5,7 @@ import { store } from "../../store";
 import { User } from "../../store/features/user/types";
 import { loginUserActionCreator } from "../../store/features/user/userSlice";
 import { CustomTokenPayload, UserCredentials } from "./types";
-import { useUser } from "./useUser";
+import useUser from "./useUser";
 
 jest.mock("jwt-decode", () => jest.fn());
 
