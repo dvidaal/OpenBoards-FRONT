@@ -1,11 +1,11 @@
 import { screen } from "@testing-library/react";
-import LoginPage from "./LoginPage";
-import renderWithProviders from "../../testUtil";
+import App from "./App";
+import renderWithProviders from "./testUtil";
 
-describe("Given a LoginPage page", () => {
+describe("Given an App component", () => {
   describe("When rendered", () => {
     test("Then it should show an image", () => {
-      renderWithProviders(<LoginPage />);
+      renderWithProviders(<App />);
 
       const expectedImage = screen.getByRole("img");
 
