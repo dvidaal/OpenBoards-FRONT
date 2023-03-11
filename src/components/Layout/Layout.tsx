@@ -1,13 +1,12 @@
+import { Outlet } from "react-router";
 import { ToastContainer } from "react-toastify";
-import LoginPage from "../../pages/LoginPage/LoginPage";
 
 const Layout = (): JSX.Element => {
   return (
     <>
       <ToastContainer
-        className="hola"
         position="top-center"
-        autoClose={5000}
+        autoClose={5000000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
@@ -16,7 +15,7 @@ const Layout = (): JSX.Element => {
         draggable
         pauseOnHover
       />
-      <LoginPage />;
+      <Outlet />
     </>
   );
 };
