@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
 import App from "./App";
-import renderWithProviders from "./testUtil";
+import renderWithProviders from "./testUtils/renderWithProviders";
 
 describe("Given an App component", () => {
   describe("When rendered", () => {

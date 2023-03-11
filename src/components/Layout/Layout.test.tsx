@@ -1,5 +1,5 @@
 import { screen } from "@testing-library/react";
-import renderWithProviders from "../../testUtil";
+import renderWithProviders from "../../testUtils/renderWithProviders";
 import Layout from "./Layout";
 
 describe("Given a Layout component", () => {
