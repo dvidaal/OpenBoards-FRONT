@@ -32,7 +32,7 @@ const LoginForm = (): JSX.Element => {
       <label>
         Username
         <input
-          type="username"
+          type="text"
           placeholder="Username"
           name="username"
           className="form__field"

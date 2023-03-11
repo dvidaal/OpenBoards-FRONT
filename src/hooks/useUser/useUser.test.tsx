@@ -65,7 +65,10 @@ describe("Given a useUser custom hook", () => {
       await loginUser(wrongCredentials);
 
       expect(spy).toHaveBeenCalledWith(
-        showModalActionCreator({ modal: "Wrong Credentials", isError: true })
+        showModalActionCreator({
+          modal: "Usuario o contraseña incorrectos",
+          isError: true,
+        })
       );
     });
   });
