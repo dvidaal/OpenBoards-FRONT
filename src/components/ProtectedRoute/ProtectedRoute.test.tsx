@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
 import { useAppSelector } from "../../store/hooks";
-import renderWithProviders from "../../testUtils/renderWithProviders";
+import { renderWithProviders } from "../../testUtils/renderWithProviders";
 import ProtectedRoute from "./ProtectedRoute";
 
 jest.mock("../../store/hooks", () => ({
