@@ -1,29 +1,42 @@
-import { GameStructure, GamesStructure } from "../../../types/types";
+import { GamesStructure, GamesData } from "../../../types/types";
 import { gameReducer, loadGamesActionCreator } from "./gameSlice";
 
 describe("Given gameReducer reducer", () => {
   describe("When it receives a loadGames action", () => {
     test("Then it should response with one game", () => {
-      const mockGame: GameStructure[] = [
+      const initialState: GamesData = {
+        games: [],
+      };
+
+      const mockGame: GamesStructure = [
         {
           game: "Némesis",
           avatar: "asdfghjkl",
-          date: new Date(),
+          date: "dadas",
           hour: "sfasfa",
           bio: "sdfasdfas",
           plazasLibres: 3,
         },
       ];
 
-      const games: GamesStructure = mockGame;
+      const expectedFinalState: GamesData = {
+        games: [
+          {
+            game: "Némesis",
+            avatar: "asdfghjkl",
+            date: "dadas",
+            hour: "sfasfa",
+            bio: "sdfasdfas",
+            plazasLibres: 3,
+          },
+        ],
+      };
 
-      const gameLoaded: GamesStructure = games;
+      const loadGamesAction = loadGamesActionCreator(mockGame);
 
-      const loadGamesAction = loadGamesActionCreator(games);
+      const newGames = gameReducer(initialState, loadGamesAction);
 
-      const newGames = gameReducer([], loadGamesAction);
-
-      expect(newGames).toStrictEqual(gameLoaded);
+      expect(newGames).toStrictEqual(expectedFinalState);
     });
   });
 });
