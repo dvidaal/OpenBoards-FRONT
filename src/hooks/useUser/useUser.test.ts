@@ -1,10 +1,13 @@
 import { renderHook } from "@testing-library/react";
 import decodeToken from "jwt-decode";
+import { errorHandlers } from "../../mocks/handlers";
+import { server } from "../../mocks/server";
 import Wrapper from "../../mocks/Wrapper";
 import { store } from "../../store";
 import { showModalActionCreator } from "../../store/features/ui/uiSlice";
 import { User } from "../../store/features/user/types";
 import { loginUserActionCreator } from "../../store/features/user/userSlice";
+import ModalPayload from "../../types/types";
 import { CustomTokenPayload, UserCredentials } from "./types";
 import useUser from "./useUser";
 
@@ -49,27 +52,27 @@ describe("Given a useUser custom hook", () => {
 
       expect(spy).toHaveBeenCalledWith(loginUserActionCreator(mockLogin));
     });
+  });
 
-    test("Then it should call the showModalActionCreator function", async () => {
+  describe("When the loginUser function is called and the request login action fails", () => {
+    beforeEach(() => {
+      server.resetHandlers(...errorHandlers);
+    });
+    test("Then it should call the dispatch with the openModalActionCreator to show an error modal with the text 'Usuario o contraseña incorrectos'", async () => {
       const {
         result: {
           current: { loginUser },
         },
       } = renderHook(() => useUser(), { wrapper: Wrapper });
 
-      const wrongCredentials: UserCredentials = {
-        username: "wrongUsername",
-        password: "wrongPassword",
+      const modal: ModalPayload = {
+        modal: "Usuario o contraseña incorrectos",
+        isError: true,
       };
 
-      await loginUser(wrongCredentials);
+      await loginUser(userCredentials);
 
-      expect(spy).toHaveBeenCalledWith(
-        showModalActionCreator({
-          modal: "Usuario o contraseña incorrectos",
-          isError: true,
-        })
-      );
+      expect(spy).toHaveBeenCalledWith(showModalActionCreator(modal));
     });
   });
 });
