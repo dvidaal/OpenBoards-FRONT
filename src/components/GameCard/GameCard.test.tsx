@@ -14,6 +14,7 @@ describe("Given a GameCard component", () => {
         plazasLibres: 2,
         bio: "fake",
       };
+
       renderWithProviders(<GameCard game={mockGame} />);
 
       const expectedResult = screen.getByRole("img");
