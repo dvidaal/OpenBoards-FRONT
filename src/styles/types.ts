@@ -8,6 +8,8 @@ declare module "styled-components" {
       mainButtonColor: string;
       inputLoginFormBackground: string;
       secondaryColorLogin: string;
+      datesColor: string;
+      cardBackground: string;
     };
 
     radiusLoginInputButton: string;
