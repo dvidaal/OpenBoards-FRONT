@@ -29,7 +29,7 @@ const mockToken = "someToken";
 
 describe("Given a useUser custom hook", () => {
   describe("When the loginUser function is called", () => {
-    test("Then it should call the dispatch", async () => {
+    test("Then it should call the dispatch with a log in action", async () => {
       const {
         result: {
           current: { loginUser },
