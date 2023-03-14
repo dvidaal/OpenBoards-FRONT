@@ -10,6 +10,9 @@ const ButtonStyled = styled.button`
   height: 40px;
   font-weight: bold;
   font-size: 16px;
+  :disabled {
+    opacity: 0.57;
+  }
 `;
 
 export default ButtonStyled;

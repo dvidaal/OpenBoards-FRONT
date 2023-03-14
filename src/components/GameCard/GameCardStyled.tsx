@@ -3,10 +3,9 @@ import styled from "styled-components";
 const GameCardStyled = styled.article`
   display: flex;
   flex-direction: column;
-  /*   background-color: #18182f */
+  box-shadow: rgba(239, 139, 48, 1) 1px 1px 4px;
   font-family: ${(props) => props.theme.mainFont};
   color: ${(props) => props.theme.colors.mainColor};
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 30px;
   padding: 20px;
   width: 250px;

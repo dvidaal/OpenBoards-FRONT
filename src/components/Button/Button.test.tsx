@@ -7,7 +7,7 @@ describe("Given a Button component", () => {
     test("Then it should show a button with the text 'Entrar' on it", () => {
       const buttonText = "Entrar";
 
-      renderWithProviders(<Button text={buttonText} />);
+      renderWithProviders(<Button isDisabled={false} text={buttonText} />);
 
       const expectedButton = screen.getByRole("button", { name: buttonText });
 
