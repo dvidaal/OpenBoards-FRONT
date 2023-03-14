@@ -1,7 +1,7 @@
 import { RouteObject, createBrowserRouter } from "react-router-dom";
 import App from "../App";
-import GameCardList from "../components/GameCardList/GameCardList";
 import ProtectedRoute from "../components/ProtectedRoute/ProtectedRoute";
+import HomePage from "../pages/HomePage/HomePage";
 import LoginPage from "../pages/LoginPage/LoginPage";
 import { endpoints } from "./types";
 
@@ -10,7 +10,7 @@ const routes: RouteObject[] = [
     path: "/",
     element: <App />,
     children: [
-      { path: "/", element: <ProtectedRoute element={<GameCardList />} /> },
+      { path: "/", element: <ProtectedRoute element={<HomePage />} /> },
       { path: endpoints.login, element: <LoginPage /> },
     ],
   },
