@@ -1,23 +1,25 @@
 import styled from "styled-components";
 
-const GameCardStyled = styled.div`
-  width: 169px;
-  height: 208px;
+const GameCardStyled = styled.article`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
+  /*   background-color: #18182f */
+  font-family: ${(props) => props.theme.mainFont};
+  color: ${(props) => props.theme.colors.mainColor};
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 30px;
+  padding: 20px;
+  width: 250px;
+  height: 360px;
 
   img {
-    border-radius: 10px;
+    padding: 10px;
+    border-radius: 35px;
   }
 
   .info-container {
-    font-family: ${(props) => props.theme.mainFont};
-    color: ${(props) => props.theme.colors.mainColor};
-    background-color: ${(props) => props.theme.colors.cardBackground};
-    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
 
     &__game-title {
       font-weight: bold;
@@ -27,10 +29,11 @@ const GameCardStyled = styled.div`
     &__game-hour {
       color: ${(props) => props.theme.colors.datesColor};
       font-style: italic;
-      font-size: 1rem;
+      font-size: 1.2rem;
     }
 
     &__game-free-space {
+      font-size: 1.2rem;
       color: ${(props) => props.theme.colors.mainButtonColor};
     }
   }

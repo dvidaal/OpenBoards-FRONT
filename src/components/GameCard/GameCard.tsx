@@ -8,13 +8,14 @@ export interface CardGameProps {
 const GameCard = ({ game }: CardGameProps): JSX.Element => {
   return (
     <GameCardStyled>
-      <img
-        src={game.avatar}
-        alt="Cover del juego de mesa"
-        width="150"
-        height="150"
-      />
       <div className="info-container">
+        <img
+          src={game.avatar}
+          alt="Cover del juego de mesa"
+          width="200"
+          height="200"
+          className="game-image"
+        />
         <h2 className="info-container__game-title">{game.game}</h2>
         <span className="info-container__game-hour">{game.hour}</span>
         <span className="info-container__game-free-space">
