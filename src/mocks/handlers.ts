@@ -28,6 +28,6 @@ export const errorHandlers = [
 
   rest.get(
     `${process.env.REACT_APP_URL_API}${routes.appEndpoint}${routes.games}`,
-    async (req, res, ctx) => res(ctx.status(500))
+    async (req, res, ctx) => res(ctx.status(400))
   ),
 ];

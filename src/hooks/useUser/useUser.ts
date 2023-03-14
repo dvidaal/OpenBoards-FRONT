@@ -35,7 +35,7 @@ const useUser = (): UserStructure => {
       dispatch(loginUserActionCreator(userLogin));
 
       localStorage.setItem("token", token);
-    } catch (error) {
+    } catch {
       dispatch(
         showModalActionCreator({
           modal: "Usuario o contraseña incorrectos",
