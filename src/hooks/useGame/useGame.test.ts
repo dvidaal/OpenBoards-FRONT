@@ -31,7 +31,7 @@ describe("Given a useGame custom hook", () => {
     });
   });
 
-  describe("When the getEvents function is called and the response from the request is failed", () => {
+  describe("When the getGame function is called and the response from the request is failed", () => {
     beforeEach(() => {
       server.resetHandlers(...errorHandlers);
     });

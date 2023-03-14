@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import useGame from "../../hooks/useGame/useGame";
 import { useAppSelector } from "../../store/hooks";
 import GameCard from "../GameCard/GameCard";
+import GameCardListStyled from "./GameCardListStyled";
 
 const GameCardList = (): JSX.Element => {
   const { getGame } = useGame();
@@ -13,13 +14,13 @@ const GameCardList = (): JSX.Element => {
   const games = useAppSelector((state) => state.game.games);
 
   return (
-    <ul>
+    <GameCardListStyled>
       {games.map((game) => (
         <li key={game.game}>
           <GameCard game={game} />
         </li>
       ))}
-    </ul>
+    </GameCardListStyled>
   );
 };
 
