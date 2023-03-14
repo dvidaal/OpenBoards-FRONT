@@ -6,6 +6,7 @@ export interface CardGameProps {
 }
 
 const GameCard = ({ game }: CardGameProps): JSX.Element => {
+  const localDateFormat = game.date.toLocaleString().split("T")[0];
   return (
     <GameCardStyled>
       <div className="info-container">
@@ -17,7 +18,7 @@ const GameCard = ({ game }: CardGameProps): JSX.Element => {
           className="game-image"
         />
         <h2 className="info-container__game-title">{game.game}</h2>
-        <span className="info-container__game-hour">{game.hour}</span>
+        <span className="info-container__game-hour">{localDateFormat}</span>
         <span className="info-container__game-free-space">
           Plazas libres: {game.plazasLibres}
         </span>
