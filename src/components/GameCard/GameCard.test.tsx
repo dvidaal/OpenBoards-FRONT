@@ -13,6 +13,7 @@ describe("Given a GameCard component", () => {
         hour: "fake",
         plazasLibres: 2,
         bio: "fake",
+        id: "fake",
       };
 
       renderWithProviders(<GameCard game={mockGame} />);

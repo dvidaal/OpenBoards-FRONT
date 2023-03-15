@@ -12,10 +12,12 @@ export interface GameStructure {
   hour: string;
   bio: string;
   plazasLibres: number;
+  id: string;
 }
 
 export type GamesStructure = GameStructure[];
 
 export interface GamesData {
   games: GamesStructure;
+  singleGame: GameStructure;
 }
