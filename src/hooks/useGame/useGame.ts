@@ -48,8 +48,8 @@ export const useGame = () => {
         if (!response.ok) {
           throw new Error("Imposible mostrar el juego que estas buscando");
         }
-        const { singleGame } = (await response.json()) as GamesData;
-        dispatch(loadOneGameActionCreator(singleGame));
+        const { singleGame: game } = (await response.json()) as GamesData;
+        dispatch(loadOneGameActionCreator(game));
       } catch (error) {
         dispatch(
           showModalActionCreator({

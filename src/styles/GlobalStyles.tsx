@@ -23,6 +23,11 @@ li {
   
 }
 
+a{
+  color: inherit;
+  text-decoration: none;
+}
+
 button {
   font-family: inherit;
   display: flex;

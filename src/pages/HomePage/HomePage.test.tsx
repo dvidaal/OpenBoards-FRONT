@@ -1,5 +1,5 @@
 import { screen } from "@testing-library/react";
-import { renderWithProviders } from "../../testUtils/renderWithProviders";
+import { renderRouterWithProviders } from "../../testUtils/renderWithProviders";
 import { GamesStructure } from "../../types/types";
 import HomePage from "./HomePage";
 
@@ -27,7 +27,7 @@ describe("Given a HomePage component", () => {
         },
       ];
 
-      renderWithProviders(<HomePage />, {
+      renderRouterWithProviders(<HomePage />, {
         game: {
           games: mockGame,
           singleGame: {

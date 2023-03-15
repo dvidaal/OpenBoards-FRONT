@@ -1,5 +1,5 @@
 import { screen } from "@testing-library/react";
-import { renderWithProviders } from "../../testUtils/renderWithProviders";
+import { renderRouterWithProviders } from "../../testUtils/renderWithProviders";
 import { GameStructure } from "../../types/types";
 import GameCard from "./GameCard";
 
@@ -16,7 +16,7 @@ describe("Given a GameCard component", () => {
         id: "fake",
       };
 
-      renderWithProviders(<GameCard game={mockGame} />);
+      renderRouterWithProviders(<GameCard game={mockGame} />);
 
       const expectedResult = screen.getByRole("img");
 
