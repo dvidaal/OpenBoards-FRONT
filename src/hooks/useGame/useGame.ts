@@ -1,5 +1,8 @@
 import { useCallback } from "react";
-import { loadGamesActionCreator } from "../../store/features/game/gameSlice";
+import {
+  loadGamesActionCreator,
+  loadOneGameActionCreator,
+} from "../../store/features/game/gameSlice";
 import { showModalActionCreator } from "../../store/features/ui/uiSlice";
 import { useAppDispatch } from "../../store/hooks";
 import { GamesData } from "../../types/types";
@@ -35,7 +38,32 @@ export const useGame = () => {
     }
   }, [apirUrl, dispatch]);
 
-  return { getGame };
+  const getGameById = useCallback(
+    async (id: string) => {
+      try {
+        const response = await fetch(`${apirUrl}${appEndpoint}/${id}`, {
+          method: "GET",
+          headers: { "Contaner-Type": "application/json" },
+        });
+        if (!response.ok) {
+          throw new Error("Imposible mostrar el juego que estas buscando");
+        }
+        const { singleGame } = (await response.json()) as GamesData;
+        dispatch(loadOneGameActionCreator(singleGame));
+      } catch (error) {
+        dispatch(
+          showModalActionCreator({
+            isError: true,
+            modal: (error as Error).message,
+          })
+        );
+        return (error as Error).message;
+      }
+    },
+    [apirUrl, dispatch]
+  );
+
+  return { getGame, getGameById };
 };
 
 export default useGame;

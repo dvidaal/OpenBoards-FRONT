@@ -4,7 +4,10 @@ import { mockGames } from "../../mocks/mocks";
 import { server } from "../../mocks/server";
 import Wrapper from "../../mocks/Wrapper";
 import { store } from "../../store";
-import { loadGamesActionCreator } from "../../store/features/game/gameSlice";
+import {
+  loadGamesActionCreator,
+  loadOneGameActionCreator,
+} from "../../store/features/game/gameSlice";
 import { showModalActionCreator } from "../../store/features/ui/uiSlice";
 import ModalPayload from "../../types/types";
 import useGame from "./useGame";
@@ -48,6 +51,45 @@ describe("Given a useGame custom hook", () => {
       };
 
       await getGame();
+
+      expect(spyDispatch).toHaveBeenCalledWith(showModalActionCreator(modal));
+    });
+  });
+
+  describe("When the getGameById is called", () => {
+    test("Then it should call the dispatch", async () => {
+      const {
+        result: {
+          current: { getGameById },
+        },
+      } = renderHook(() => useGame(), { wrapper: Wrapper });
+
+      const action = loadOneGameActionCreator(mockGames.singleGame);
+
+      await getGameById(mockGames.singleGame.id);
+
+      expect(spyDispatch).toHaveBeenCalledWith(action);
+    });
+  });
+
+  describe("When the getGameById function is called and the response from the request is failed", () => {
+    beforeEach(() => {
+      server.resetHandlers(...errorHandlers);
+    });
+
+    test("Then it should call the dispatch with show modal action", async () => {
+      const {
+        result: {
+          current: { getGameById },
+        },
+      } = renderHook(() => useGame(), { wrapper: Wrapper });
+
+      const modal: ModalPayload = {
+        isError: true,
+        modal: "Imposible mostrar el juego que estas buscando",
+      };
+
+      await getGameById("1234567");
 
       expect(spyDispatch).toHaveBeenCalledWith(showModalActionCreator(modal));
     });

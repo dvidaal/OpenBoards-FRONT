@@ -7,6 +7,7 @@ export const mockFirstGame: GameStructure = {
   hour: "sfasfa",
   bio: "sdfasdfas",
   plazasLibres: 3,
+  id: "1234567",
 };
 
 export const mockSecondGame: GameStructure = {
@@ -16,8 +17,10 @@ export const mockSecondGame: GameStructure = {
   hour: "sfasfa",
   bio: "sdfasdfas",
   plazasLibres: 3,
+  id: "1234567",
 };
 
 export const mockGames: GamesData = {
   games: [mockSecondGame, mockFirstGame],
+  singleGame: mockFirstGame,
 };
