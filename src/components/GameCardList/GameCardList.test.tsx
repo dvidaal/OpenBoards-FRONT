@@ -1,5 +1,5 @@
 import { screen } from "@testing-library/react";
-import { renderWithProviders } from "../../testUtils/renderWithProviders";
+import { renderRouterWithProviders } from "../../testUtils/renderWithProviders";
 import { GamesStructure } from "../../types/types";
 import GameCardList from "./GameCardList";
 
@@ -27,7 +27,7 @@ describe("Given a GameCardList component", () => {
         },
       ];
 
-      renderWithProviders(<GameCardList />, {
+      renderRouterWithProviders(<GameCardList />, {
         game: {
           games: mockGame,
           singleGame: {
