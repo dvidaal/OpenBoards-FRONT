@@ -14,6 +14,7 @@ describe("Given a HomePage component", () => {
           hour: "",
           plazasLibres: 2,
           bio: "",
+          id: "",
         },
         {
           avatar: "",
@@ -22,10 +23,24 @@ describe("Given a HomePage component", () => {
           hour: "",
           plazasLibres: 2,
           bio: "",
+          id: "",
         },
       ];
 
-      renderWithProviders(<HomePage />, { game: { games: mockGame } });
+      renderWithProviders(<HomePage />, {
+        game: {
+          games: mockGame,
+          singleGame: {
+            game: "",
+            avatar: "",
+            date: "",
+            hour: "",
+            bio: "",
+            plazasLibres: 2,
+            id: "",
+          },
+        },
+      });
 
       const expectedResult = screen.getByText("Némesis");
 

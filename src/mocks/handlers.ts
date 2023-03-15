@@ -5,6 +5,7 @@ const routes = {
   appEndpoint: "/openboards",
   login: "/login",
   games: "/games",
+  singleGame: `/${mockGames.singleGame.id}`,
 };
 
 export const handlers = [
@@ -18,6 +19,12 @@ export const handlers = [
     `${process.env.REACT_APP_URL_API}${routes.appEndpoint}${routes.games}`,
     async (req, res, ctx) => res(ctx.status(200), ctx.json(mockGames))
   ),
+
+  rest.get(
+    `${process.env.REACT_APP_URL_API}${routes.appEndpoint}${routes.singleGame}`,
+    async (req, res, ctx) =>
+      res(ctx.status(200), ctx.json({ singleGame: mockGames.singleGame }))
+  ),
 ];
 
 export const errorHandlers = [
@@ -28,6 +35,11 @@ export const errorHandlers = [
 
   rest.get(
     `${process.env.REACT_APP_URL_API}${routes.appEndpoint}${routes.games}`,
+    async (req, res, ctx) => res(ctx.status(400))
+  ),
+
+  rest.get(
+    `${process.env.REACT_APP_URL_API}${routes.appEndpoint}${routes.singleGame}`,
     async (req, res, ctx) => res(ctx.status(400))
   ),
 ];
