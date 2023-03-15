@@ -1,6 +1,11 @@
 import { screen } from "@testing-library/react";
 import App from "./App";
+import { showFeedbackUser } from "./modals/modals";
 import { renderWithProviders } from "./testUtils/renderWithProviders";
+
+jest.mock("./modals/modals", () => ({
+  showFeedbackUser: jest.fn(),
+}));
 
 describe("Given an App component", () => {
   describe("When rendered", () => {
@@ -14,6 +19,19 @@ describe("Given an App component", () => {
       const result = screen.getByAltText(expectedText);
 
       expect(result).toBeInTheDocument();
+    });
+
+    test("Then it should render ToastContainer with error message", () => {
+      const expectedErrorMessage = "Oh";
+
+      renderWithProviders(<App />, {
+        ui: {
+          modal: "Oh",
+          isError: true,
+        },
+      });
+
+      expect(showFeedbackUser).toHaveBeenCalledWith(expectedErrorMessage);
     });
   });
 });
