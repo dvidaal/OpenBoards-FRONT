@@ -30,6 +30,7 @@ const useUser = (): UserStructure => {
         headers: { "Content-Type": "application/json" },
       });
 
+      dispatch(unsetLoaderActionCreator());
       const { token } = (await response.json()) as LoginResponse;
 
       const tokenPayload: CustomTokenPayload = decodeToken(token);
@@ -39,7 +40,6 @@ const useUser = (): UserStructure => {
       const userLogin: User = { username, token };
 
       dispatch(loginUserActionCreator(userLogin));
-      dispatch(unsetLoaderActionCreator());
 
       localStorage.setItem("token", token);
     } catch {
