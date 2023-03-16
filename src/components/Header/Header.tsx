@@ -8,7 +8,7 @@ const Header = (): JSX.Element => {
       {isLogged && (
         <>
           <img
-            src="openBoardsLogo.webp"
+            src="/openBoardsLogo.webp"
             alt="Logo OpenBoards"
             width="89"
             height="38"
