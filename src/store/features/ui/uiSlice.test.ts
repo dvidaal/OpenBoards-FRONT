@@ -7,6 +7,7 @@ describe("Given a uiReducer reducer", () => {
       const initialUiState: ModalPayload = {
         modal: "",
         isError: false,
+        isLoading: true,
       };
 
       const modalMessage = "Wrong credentials";
@@ -14,6 +15,7 @@ describe("Given a uiReducer reducer", () => {
       const modalPayload: ModalPayload = {
         modal: modalMessage,
         isError: true,
+        isLoading: false,
       };
 
       const showModal = showModalActionCreator(modalPayload);
