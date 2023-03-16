@@ -16,7 +16,7 @@ describe("Given a GameCard component", () => {
         id: "fake",
       };
 
-      renderRouterWithProviders(<GameCard game={mockGame} />);
+      renderRouterWithProviders({}, <GameCard game={mockGame} />);
 
       const expectedResult = screen.getByRole("img");
 

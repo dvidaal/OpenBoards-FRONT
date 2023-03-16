@@ -27,20 +27,23 @@ describe("Given a GameCardList component", () => {
         },
       ];
 
-      renderRouterWithProviders(<GameCardList />, {
-        game: {
-          games: mockGame,
-          singleGame: {
-            game: "",
-            avatar: "",
-            date: "",
-            hour: "",
-            bio: "",
-            plazasLibres: 2,
-            id: "",
+      renderRouterWithProviders(
+        {
+          game: {
+            games: mockGame,
+            singleGame: {
+              game: "",
+              avatar: "",
+              date: "",
+              hour: "",
+              bio: "",
+              plazasLibres: 2,
+              id: "",
+            },
           },
         },
-      });
+        <GameCardList />
+      );
 
       const expectedResult = screen.getByText("Némesis");
 

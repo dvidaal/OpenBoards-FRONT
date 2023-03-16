@@ -7,9 +7,12 @@ describe("Given a Layout component", () => {
     test("Then it should show a logo if the user is logged", () => {
       const expectedText = "Logo OpenBoards";
 
-      renderRouterWithProviders(<Layout />, {
-        user: { isLogged: true, token: "", username: "" },
-      });
+      renderRouterWithProviders(
+        {
+          user: { isLogged: true, token: "", username: "" },
+        },
+        <Layout />
+      );
 
       const result = screen.getByAltText(expectedText);
 

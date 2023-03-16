@@ -27,20 +27,23 @@ describe("Given a HomePage component", () => {
         },
       ];
 
-      renderRouterWithProviders(<HomePage />, {
-        game: {
-          games: mockGame,
-          singleGame: {
-            game: "",
-            avatar: "",
-            date: "",
-            hour: "",
-            bio: "",
-            plazasLibres: 2,
-            id: "",
+      renderRouterWithProviders(
+        {
+          game: {
+            games: mockGame,
+            singleGame: {
+              game: "",
+              avatar: "",
+              date: "",
+              hour: "",
+              bio: "",
+              plazasLibres: 2,
+              id: "",
+            },
           },
         },
-      });
+        <HomePage />
+      );
 
       const expectedResult = screen.getByText("Némesis");
 

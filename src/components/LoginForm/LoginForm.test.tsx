@@ -2,7 +2,7 @@ import userEvent from "@testing-library/user-event";
 import { screen } from "@testing-library/react";
 import { act } from "react-dom/test-utils";
 import LoginForm from "./LoginForm";
-import { renderRouterWithProviders } from "../../testUtils/renderWithProviders";
+import { renderWithProviders } from "../../testUtils/renderWithProviders";
 import { UserCredentials } from "../../hooks/useUser/types";
 
 const mockLogin = jest.fn();
@@ -16,7 +16,7 @@ describe("Given a LoginForm component", () => {
     test("Then it should show a label with the text 'Username'", () => {
       const textForm = "Username";
 
-      renderRouterWithProviders(<LoginForm />);
+      renderWithProviders(<LoginForm />);
 
       const expectedLabel = screen.getByRole("textbox", { name: textForm });
 
@@ -29,7 +29,7 @@ describe("Given a LoginForm component", () => {
       const usernameLabel = "Username";
       const fieldText = "Didi";
 
-      renderRouterWithProviders(<LoginForm />);
+      renderWithProviders(<LoginForm />);
 
       const expectedResult = screen.getByRole("textbox", {
         name: usernameLabel,
@@ -46,7 +46,7 @@ describe("Given a LoginForm component", () => {
       const passwordText = "Password";
       const fieldText = "12345678";
 
-      renderRouterWithProviders(<LoginForm />);
+      renderWithProviders(<LoginForm />);
 
       const expectedResult = screen.getByLabelText(passwordText);
 
@@ -67,7 +67,7 @@ describe("Given a LoginForm component", () => {
         password: "12345678",
       };
 
-      renderRouterWithProviders(<LoginForm />);
+      renderWithProviders(<LoginForm />);
 
       const usernameField = screen.getByPlaceholderText(usernamePlaceholder);
       const passwordField = screen.getByPlaceholderText(passwordPlaceholder);
