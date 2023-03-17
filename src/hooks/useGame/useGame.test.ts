@@ -48,6 +48,7 @@ describe("Given a useGame custom hook", () => {
       const modal: ModalPayload = {
         isError: true,
         modal: "Imposible mostrar los juegos",
+        isLoading: false,
       };
 
       await getGame();
@@ -87,6 +88,7 @@ describe("Given a useGame custom hook", () => {
       const modal: ModalPayload = {
         isError: true,
         modal: "Imposible mostrar el juego que estas buscando",
+        isLoading: false,
       };
 
       await getGameById("1234567");

@@ -28,6 +28,7 @@ describe("Given an App component", () => {
         ui: {
           modal: "Oh",
           isError: true,
+          isLoading: false,
         },
       });
 

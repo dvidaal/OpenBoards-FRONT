@@ -1,6 +1,7 @@
 interface ModalPayload {
   modal: string;
   isError: boolean;
+  isLoading: boolean;
 }
 
 export default ModalPayload;
