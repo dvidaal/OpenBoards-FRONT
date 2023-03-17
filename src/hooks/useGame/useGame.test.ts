@@ -1,10 +1,11 @@
 import { renderHook } from "@testing-library/react";
 import { errorHandlers } from "../../mocks/handlers";
-import { mockGames } from "../../mocks/mocks";
+import { mockFirstGame, mockGames } from "../../mocks/mocks";
 import { server } from "../../mocks/server";
 import Wrapper from "../../mocks/Wrapper";
 import { store } from "../../store";
 import {
+  deleteGameByIdActionCreator,
   loadGamesActionCreator,
   loadOneGameActionCreator,
 } from "../../store/features/game/gameSlice";
@@ -92,6 +93,45 @@ describe("Given a useGame custom hook", () => {
       };
 
       await getGameById("1234567");
+
+      expect(spyDispatch).toHaveBeenCalledWith(showModalActionCreator(modal));
+    });
+  });
+
+  describe("When the deleteGameById is called", () => {
+    test("Then it should call the dispatch", async () => {
+      const {
+        result: {
+          current: { deleteGameById },
+        },
+      } = renderHook(() => useGame(), { wrapper: Wrapper });
+
+      const deleteAction = deleteGameByIdActionCreator(mockFirstGame.id);
+
+      await deleteGameById(mockFirstGame.id);
+
+      expect(spyDispatch).toHaveBeenNthCalledWith(2, deleteAction);
+    });
+  });
+
+  describe("When the deleteGameById function is called and the response from the request is failed", () => {
+    beforeEach(() => {
+      server.resetHandlers(...errorHandlers);
+    });
+    test("Then it should call the dispatch with show modal action", async () => {
+      const {
+        result: {
+          current: { deleteGameById },
+        },
+      } = renderHook(() => useGame(), { wrapper: Wrapper });
+
+      const modal: ModalPayload = {
+        isError: true,
+        modal: "No se ha podido eliminar la partida",
+        isLoading: false,
+      };
+
+      await deleteGameById("1234567");
 
       expect(spyDispatch).toHaveBeenCalledWith(showModalActionCreator(modal));
     });

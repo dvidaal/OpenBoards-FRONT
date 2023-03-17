@@ -92,7 +92,6 @@ export const useGame = () => {
         dispatch(deleteGameByIdActionCreator(id));
         dispatch(unsetLoaderActionCreator());
       } catch (error) {
-        dispatch(unsetLoaderActionCreator());
         dispatch(
           showModalActionCreator({
             isError: true,
