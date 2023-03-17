@@ -16,7 +16,7 @@ export const useGame = () => {
 
   const apirUrl = process.env.REACT_APP_URL_API;
   const appEndpoint = "/openboards";
-  const gameEndpoint = "/games";
+  const gameEndpoint = "/";
 
   const getGame = useCallback(async () => {
     try {
