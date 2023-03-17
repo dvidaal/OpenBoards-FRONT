@@ -17,7 +17,7 @@ const useUser = (): UserStructure => {
   const dispatch = useAppDispatch();
 
   const apirUrl = process.env.REACT_APP_URL_API;
-  const appEndpoint = "/openboards";
+  const appEndpoint = "/users";
   const loginEndpoint = "/login";
 
   const loginUser = async (userCredentials: UserCredentials) => {
