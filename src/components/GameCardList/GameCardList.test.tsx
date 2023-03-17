@@ -15,6 +15,7 @@ describe("Given a GameCardList component", () => {
           plazasLibres: 2,
           bio: "",
           id: "",
+          createdBy: "",
         },
         {
           avatar: "",
@@ -24,6 +25,7 @@ describe("Given a GameCardList component", () => {
           plazasLibres: 2,
           bio: "",
           id: "",
+          createdBy: "",
         },
       ];
 
@@ -39,6 +41,7 @@ describe("Given a GameCardList component", () => {
               bio: "",
               plazasLibres: 2,
               id: "",
+              createdBy: "",
             },
           },
         },

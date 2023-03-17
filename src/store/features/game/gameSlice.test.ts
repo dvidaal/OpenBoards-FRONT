@@ -1,5 +1,7 @@
+import { mockFirstGame, mockSecondGame } from "../../../mocks/mocks";
 import { GamesStructure, GamesData, GameStructure } from "../../../types/types";
 import {
+  deleteGameByIdActionCreator,
   gameReducer,
   loadGamesActionCreator,
   loadOneGameActionCreator,
@@ -8,13 +10,14 @@ import {
 const initialState: GamesData = {
   games: [],
   singleGame: {
-    game: "",
-    avatar: "",
-    date: "",
-    hour: "",
-    bio: "",
-    plazasLibres: 2,
-    id: "",
+    game: "Némesis",
+    avatar: "asdfghjkl",
+    date: "sdfsdf",
+    hour: "sfasfa",
+    bio: "sdfasdfas",
+    plazasLibres: 3,
+    id: "1234567",
+    createdBy: "fake",
   },
 };
 
@@ -27,6 +30,7 @@ const mockGame: GamesStructure = [
     bio: "sdfasdfas",
     plazasLibres: 3,
     id: "",
+    createdBy: "",
   },
 ];
 
@@ -40,16 +44,18 @@ const expectedFinalState: GamesData = {
       bio: "sdfasdfas",
       plazasLibres: 3,
       id: "",
+      createdBy: "",
     },
   ],
   singleGame: {
-    game: "",
-    avatar: "",
-    date: "",
-    hour: "",
-    bio: "",
-    plazasLibres: 2,
-    id: "",
+    game: "Némesis",
+    avatar: "asdfghjkl",
+    date: "sdfsdf",
+    hour: "sfasfa",
+    bio: "sdfasdfas",
+    plazasLibres: 3,
+    id: "1234567",
+    createdBy: "fake",
   },
 };
 describe("Given gameReducer reducer", () => {
@@ -64,21 +70,41 @@ describe("Given gameReducer reducer", () => {
   });
 
   describe("When it receives a loadOneGame action", () => {
-    test("Then it should with a single game", () => {
+    test("Then it should return with a single game", () => {
       const mockSingleGame: GameStructure = {
-        avatar: "",
-        bio: "",
-        date: "",
-        game: "",
-        hour: "",
-        id: "",
-        plazasLibres: 2,
+        game: "Némesis",
+        avatar: "asdfghjkl",
+        date: "sdfsdf",
+        hour: "sfasfa",
+        bio: "sdfasdfas",
+        plazasLibres: 3,
+        id: "1234567",
+        createdBy: "fake",
       };
       const loadOneGameAction = loadOneGameActionCreator(mockSingleGame);
 
       const newGame = gameReducer(initialState, loadOneGameAction);
 
       expect(newGame.singleGame).toEqual(expectedFinalState.singleGame);
+    });
+  });
+
+  describe("When it receives a deleteGameById action", () => {
+    test("Then it should delete one game by id", async () => {
+      const initialListGames: GamesData = {
+        games: [mockFirstGame, mockSecondGame],
+        singleGame: mockFirstGame,
+      };
+
+      const deleteGame = deleteGameByIdActionCreator(mockFirstGame.id);
+
+      const result = gameReducer(initialListGames, deleteGame);
+      const newList = {
+        games: [mockSecondGame],
+        singleGame: mockFirstGame,
+      };
+
+      expect(newList).toStrictEqual(result);
     });
   });
 });

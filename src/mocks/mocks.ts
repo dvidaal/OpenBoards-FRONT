@@ -3,11 +3,12 @@ import { GamesData, GameStructure } from "../types/types";
 export const mockFirstGame: GameStructure = {
   game: "Némesis",
   avatar: "asdfghjkl",
-  date: "sdfsdfs",
+  date: "sdfsdf",
   hour: "sfasfa",
   bio: "sdfasdfas",
   plazasLibres: 3,
   id: "1234567",
+  createdBy: "fake",
 };
 
 export const mockSecondGame: GameStructure = {
@@ -17,7 +18,8 @@ export const mockSecondGame: GameStructure = {
   hour: "sfasfa",
   bio: "sdfasdfas",
   plazasLibres: 3,
-  id: "1234567",
+  id: "1237",
+  createdBy: "fake",
 };
 
 export const mockGames: GamesData = {

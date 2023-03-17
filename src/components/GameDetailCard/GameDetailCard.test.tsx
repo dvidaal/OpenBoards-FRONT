@@ -14,6 +14,7 @@ describe("Given a GameDetailCard component", () => {
         bio: "",
         plazasLibres: 2,
         id: "",
+        createdBy: "",
       };
 
       renderWithProviders(<GameDetailCard game={mockGame} />);
