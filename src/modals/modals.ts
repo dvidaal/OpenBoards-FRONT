@@ -4,7 +4,3 @@ import { toast } from "react-toastify";
 export const showFeedbackUser = (message: string) => {
   toast.error(message, {});
 };
-
-export const showSuccessFeedbackUser = (message: string) => {
-  toast.success(message, {});
-};

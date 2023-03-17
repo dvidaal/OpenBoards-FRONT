@@ -20,7 +20,7 @@ const gameSlice = createSlice({
   initialState: initialGameState,
   reducers: {
     loadGames: (
-      currentGameState,
+      currentGameState: GamesData,
       action: PayloadAction<GamesStructure>
     ): GamesData => ({
       ...currentGameState,
@@ -28,7 +28,7 @@ const gameSlice = createSlice({
     }),
 
     loadOneGame: (
-      currentGameState,
+      currentGameState: GamesData,
       action: PayloadAction<GameStructure>
     ): GamesData => ({
       ...currentGameState,
@@ -36,27 +36,14 @@ const gameSlice = createSlice({
     }),
 
     deleteGameById: (
-      currentGameState,
+      currentGameState: GamesData,
       action: PayloadAction<string>
-    ): GamesData => {
-      const newListGames = currentGameState.games.filter(
+    ): GamesData => ({
+      ...currentGameState,
+      games: currentGameState.games.filter(
         (game) => game.id !== action.payload
-      );
-
-      return {
-        games: newListGames,
-        singleGame: {
-          game: "",
-          avatar: "",
-          date: "",
-          hour: "",
-          bio: "",
-          plazasLibres: 2,
-          id: "",
-          createdBy: "",
-        },
-      };
-    },
+      ),
+    }),
   },
 });
 
