@@ -1,5 +1,6 @@
 import { useCallback } from "react";
 import {
+  deleteGameByIdActionCreator,
   loadGamesActionCreator,
   loadOneGameActionCreator,
 } from "../../store/features/game/gameSlice";
@@ -17,6 +18,7 @@ export const useGame = () => {
   const apirUrl = process.env.REACT_APP_URL_API;
   const appEndpoint = "/openboards";
   const gameEndpoint = "/";
+  const deleteEndpoint = "/delete";
 
   const getGame = useCallback(async () => {
     try {
@@ -73,7 +75,39 @@ export const useGame = () => {
     [apirUrl, dispatch]
   );
 
-  return { getGame, getGameById };
+  const deleteGameById = useCallback(
+    async (id: string) => {
+      dispatch(setLoaderActionCreator());
+
+      try {
+        const response = await fetch(`${apirUrl}${deleteEndpoint}/${id}`, {
+          method: "DELETE",
+          headers: { "Content-Type": "application/json" },
+        });
+
+        if (!response.ok) {
+          throw new Error("No se ha podido eliminar la partida");
+        }
+
+        dispatch(deleteGameByIdActionCreator(id));
+        dispatch(unsetLoaderActionCreator());
+      } catch (error) {
+        dispatch(unsetLoaderActionCreator());
+        dispatch(
+          showModalActionCreator({
+            isError: true,
+            modal: (error as Error).message,
+            isLoading: false,
+          })
+        );
+
+        return (error as Error).message;
+      }
+    },
+    [apirUrl, dispatch]
+  );
+
+  return { getGame, getGameById, deleteGameById };
 };
 
 export default useGame;

@@ -14,6 +14,7 @@ describe("Given a GameCard component", () => {
         plazasLibres: 2,
         bio: "fake",
         id: "fake",
+        createdBy: "fake",
       };
 
       renderRouterWithProviders({}, <GameCard game={mockGame} />);

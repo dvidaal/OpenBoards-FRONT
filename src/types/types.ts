@@ -14,6 +14,7 @@ export interface GameStructure {
   bio: string;
   plazasLibres: number;
   id: string;
+  createdBy: string;
 }
 
 export type GamesStructure = GameStructure[];

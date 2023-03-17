@@ -8,6 +8,7 @@ export const mockFirstGame: GameStructure = {
   bio: "sdfasdfas",
   plazasLibres: 3,
   id: "1234567",
+  createdBy: "fake",
 };
 
 export const mockSecondGame: GameStructure = {
@@ -18,6 +19,7 @@ export const mockSecondGame: GameStructure = {
   bio: "sdfasdfas",
   plazasLibres: 3,
   id: "1234567",
+  createdBy: "fake",
 };
 
 export const mockGames: GamesData = {

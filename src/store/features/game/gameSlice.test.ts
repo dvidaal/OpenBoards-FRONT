@@ -15,6 +15,7 @@ const initialState: GamesData = {
     bio: "",
     plazasLibres: 2,
     id: "",
+    createdBy: "",
   },
 };
 
@@ -27,6 +28,7 @@ const mockGame: GamesStructure = [
     bio: "sdfasdfas",
     plazasLibres: 3,
     id: "",
+    createdBy: "",
   },
 ];
 
@@ -40,6 +42,7 @@ const expectedFinalState: GamesData = {
       bio: "sdfasdfas",
       plazasLibres: 3,
       id: "",
+      createdBy: "",
     },
   ],
   singleGame: {
@@ -50,6 +53,7 @@ const expectedFinalState: GamesData = {
     bio: "",
     plazasLibres: 2,
     id: "",
+    createdBy: "",
   },
 };
 describe("Given gameReducer reducer", () => {
@@ -73,6 +77,7 @@ describe("Given gameReducer reducer", () => {
         hour: "",
         id: "",
         plazasLibres: 2,
+        createdBy: "",
       };
       const loadOneGameAction = loadOneGameActionCreator(mockSingleGame);
 
