@@ -2,19 +2,25 @@ import decodeToken from "jwt-decode";
 import { useAppDispatch } from "../../store/hooks";
 import { User } from "../../store/features/user/types";
 import { CustomTokenPayload, LoginResponse, UserCredentials } from "./types";
-import { loginUserActionCreator } from "../../store/features/user/userSlice";
+import {
+  loginUserActionCreator,
+  logoutUserActionCreator,
+} from "../../store/features/user/userSlice";
 import {
   setLoaderActionCreator,
   showModalActionCreator,
   unsetLoaderActionCreator,
 } from "../../store/features/ui/uiSlice";
+import useToken from "../useToken/useToken";
 
 export interface UserStructure {
   loginUser: (userCredentials: UserCredentials) => Promise<void>;
+  logoutUser: () => void;
 }
 
 const useUser = (): UserStructure => {
   const dispatch = useAppDispatch();
+  const { removeToken } = useToken();
 
   const apirUrl = process.env.REACT_APP_URL_API;
   const appEndpoint = "/users";
@@ -53,7 +59,12 @@ const useUser = (): UserStructure => {
     }
   };
 
-  return { loginUser };
+  const logoutUser = () => {
+    removeToken();
+    dispatch(logoutUserActionCreator());
+  };
+
+  return { loginUser, logoutUser };
 };
 
 export default useUser;
