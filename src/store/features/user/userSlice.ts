@@ -5,6 +5,7 @@ export const initialState: UserState = {
   isLogged: false,
   username: "",
   token: "",
+  id: "",
 };
 
 const UserSlice = createSlice({
@@ -16,6 +17,7 @@ const UserSlice = createSlice({
       username: action.payload.username,
       token: action.payload.token,
       isLogged: true,
+      id: action.payload.id,
     }),
   },
 });

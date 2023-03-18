@@ -8,12 +8,14 @@ describe("Given userReducer reducer", () => {
         isLogged: false,
         username: "",
         token: "",
+        id: "",
       };
 
       const loggedUserStatus: UserState = {
         isLogged: true,
         username: initialUser.username,
         token: initialUser.token,
+        id: "",
       };
 
       const loginUser = loginUserActionCreator(initialUser);
