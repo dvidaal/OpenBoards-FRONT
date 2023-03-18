@@ -80,10 +80,13 @@ export const useGame = () => {
       dispatch(setLoaderActionCreator());
 
       try {
-        const response = await fetch(`${apirUrl}${deleteEndpoint}/${id}`, {
-          method: "DELETE",
-          headers: { "Content-Type": "application/json" },
-        });
+        const response = await fetch(
+          `${apirUrl}${appEndpoint}${deleteEndpoint}/${id}`,
+          {
+            method: "DELETE",
+            headers: { "Content-Type": "application/json" },
+          }
+        );
 
         if (!response.ok) {
           throw new Error("No se ha podido eliminar la partida");
