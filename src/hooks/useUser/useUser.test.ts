@@ -26,6 +26,7 @@ const userCredentials: UserCredentials = {
 
 const mockTokenPayload: CustomTokenPayload = {
   username: "lDidi",
+  id: "64062ae6a801af8faeaee9ab",
 };
 
 const mockToken = "someToken";
@@ -46,6 +47,7 @@ describe("Given a useUser custom hook", () => {
       const mockLogin: User = {
         username: mockTokenPayload.username,
         token: mockToken,
+        id: mockTokenPayload.id,
       };
 
       await loginUser(userCredentials);

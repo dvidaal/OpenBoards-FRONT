@@ -15,6 +15,7 @@ beforeAll(() => {
 
 const mockTokenPayload: CustomTokenPayload = {
   username: "lDidi",
+  id: "",
 };
 
 describe("Given a useToken custom hook", () => {

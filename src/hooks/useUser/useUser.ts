@@ -35,9 +35,9 @@ const useUser = (): UserStructure => {
 
       const tokenPayload: CustomTokenPayload = decodeToken(token);
 
-      const { username } = tokenPayload;
+      const { username, id } = tokenPayload;
 
-      const userLogin: User = { username, token };
+      const userLogin: User = { username, token, id };
 
       dispatch(loginUserActionCreator(userLogin));
 

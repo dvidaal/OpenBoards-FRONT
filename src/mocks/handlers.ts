@@ -30,7 +30,7 @@ export const handlers = [
   ),
 
   rest.delete(
-    `${process.env.REACT_APP_URL_API}${routes.deleteGame}${routes.findId}`,
+    `${process.env.REACT_APP_URL_API}${routes.endpointApp}${routes.deleteGame}${routes.findId}`,
     async (req, res, ctx) => res(ctx.status(200), ctx.json({ mockGames }))
   ),
 ];
@@ -52,7 +52,7 @@ export const errorHandlers = [
   ),
 
   rest.delete(
-    `${process.env.REACT_APP_URL_API}${routes.deleteGame}${routes.findId}`,
+    `${process.env.REACT_APP_URL_API}${routes.endpointApp}${routes.deleteGame}${routes.findId}`,
     async (req, res, ctx) => res(ctx.status(400))
   ),
 ];

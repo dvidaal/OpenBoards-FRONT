@@ -54,7 +54,7 @@ const LoginForm = (): JSX.Element => {
           onChange={handleDataFormLogin}
         />
       </label>
-      <Button isDisabled={isDisabled} text="Entrar" />
+      <Button isDisabled={isDisabled} text="Entrar" className="form__button" />
     </LoginFormStyled>
   );
 };

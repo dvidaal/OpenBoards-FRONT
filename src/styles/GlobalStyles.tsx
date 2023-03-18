@@ -9,7 +9,6 @@ box-sizing: border-box;
 body {
   margin: 0;
   font-family: 'Work Sans', sans serif;
-  padding: 20px 10px;
   background-color: #0E0F10;
   min-height: 100vh;
 }
@@ -36,6 +35,7 @@ button {
   border-radius: 20px;
   cursor: pointer;
   border: none;
+  background-color: transparent;
 }
 
 h1,

@@ -9,7 +9,7 @@ describe("Given a Layout component", () => {
 
       renderRouterWithProviders(
         {
-          user: { isLogged: true, token: "", username: "" },
+          user: { isLogged: true, token: "", username: "", id: "" },
         },
         <Layout />
       );

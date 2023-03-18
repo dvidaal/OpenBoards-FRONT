@@ -16,7 +16,7 @@ const GameCardList = (): JSX.Element => {
   return (
     <GameCardListStyled>
       {games.map((game) => (
-        <li key={game.game}>
+        <li key={game.id}>
           <GameCard game={game} />
         </li>
       ))}
