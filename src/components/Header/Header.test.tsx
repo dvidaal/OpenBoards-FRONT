@@ -1,5 +1,5 @@
 import { screen } from "@testing-library/react";
-import { renderWithProviders } from "../../testUtils/renderWithProviders";
+import { renderRouterWithProviders } from "../../testUtils/renderWithProviders";
 import Header from "./Header";
 
 describe("Given a Header component", () => {
@@ -7,9 +7,12 @@ describe("Given a Header component", () => {
     test("Then it should show a logo if the user is logged", () => {
       const expectText = "Logo OpenBoards";
 
-      renderWithProviders(<Header />, {
-        user: { isLogged: true, token: "", username: "", id: "" },
-      });
+      renderRouterWithProviders(
+        {
+          user: { isLogged: true, token: "", username: "", id: "" },
+        },
+        <Header />
+      );
 
       const result = screen.getByAltText(expectText);
 
