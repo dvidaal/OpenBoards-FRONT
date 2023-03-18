@@ -1,4 +1,5 @@
 import { useAppSelector } from "../../store/hooks";
+import NavigationBar from "../NavigationBar/NavigationBar";
 import HeaderStyled from "./HeaderStyled";
 
 const Header = (): JSX.Element => {
@@ -15,6 +16,7 @@ const Header = (): JSX.Element => {
           />
         </>
       )}
+      <NavigationBar />
     </HeaderStyled>
   );
 };

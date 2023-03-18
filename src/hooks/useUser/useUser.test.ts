@@ -6,7 +6,10 @@ import Wrapper from "../../mocks/Wrapper";
 import { store } from "../../store";
 import { showModalActionCreator } from "../../store/features/ui/uiSlice";
 import { User } from "../../store/features/user/types";
-import { loginUserActionCreator } from "../../store/features/user/userSlice";
+import {
+  loginUserActionCreator,
+  logoutUserActionCreator,
+} from "../../store/features/user/userSlice";
 import ModalPayload from "../../types/types";
 import { CustomTokenPayload, UserCredentials } from "./types";
 import useUser from "./useUser";
@@ -76,6 +79,24 @@ describe("Given a useUser custom hook", () => {
       await loginUser(userCredentials);
 
       expect(spy).toHaveBeenCalledWith(showModalActionCreator(modal));
+    });
+  });
+
+  describe("When the logoutUser function is called", () => {
+    test("Then it should call the dispatch", async () => {
+      const {
+        result: {
+          current: { logoutUser },
+        },
+      } = renderHook(() => useUser(), { wrapper: Wrapper });
+
+      (decodeToken as jest.MockedFunction<typeof decodeToken>).mockReturnValue(
+        mockTokenPayload
+      );
+
+      await logoutUser();
+
+      expect(spy).toHaveBeenCalledWith(logoutUserActionCreator());
     });
   });
 });

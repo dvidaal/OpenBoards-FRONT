@@ -6,6 +6,7 @@ import { CustomTokenPayload } from "../useUser/types";
 
 interface UseTokenStructure {
   getToken: () => void;
+  removeToken: () => void;
 }
 
 const useToken = (): UseTokenStructure => {
@@ -27,7 +28,11 @@ const useToken = (): UseTokenStructure => {
     }
   }, [dispatch]);
 
-  return { getToken };
+  const removeToken = () => {
+    localStorage.removeItem("token");
+  };
+
+  return { getToken, removeToken };
 };
 
 export default useToken;

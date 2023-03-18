@@ -61,5 +61,17 @@ describe("Given a useToken custom hook", () => {
       expect(mockDispatch).not.toHaveBeenCalled();
       localStorage.clear();
     });
+
+    test("Then it should remove the token from local storage", () => {
+      const {
+        result: {
+          current: { removeToken },
+        },
+      } = renderHook(() => useToken(), { wrapper: Wrapper });
+
+      removeToken();
+
+      expect(localStorage.getItem("token")).toBeNull();
+    });
   });
 });

@@ -14,7 +14,7 @@ describe("Given a GameCardList component", () => {
           hour: "",
           plazasLibres: 2,
           bio: "",
-          id: "",
+          id: "1ygyygui",
           createdBy: "",
         },
         {
@@ -24,7 +24,7 @@ describe("Given a GameCardList component", () => {
           hour: "",
           plazasLibres: 2,
           bio: "",
-          id: "",
+          id: "uyguyj",
           createdBy: "",
         },
       ];
@@ -40,7 +40,7 @@ describe("Given a GameCardList component", () => {
               hour: "",
               bio: "",
               plazasLibres: 2,
-              id: "",
+              id: "oy8g8fkuf",
               createdBy: "",
             },
           },
