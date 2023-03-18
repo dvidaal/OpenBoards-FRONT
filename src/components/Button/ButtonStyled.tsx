@@ -1,17 +1,13 @@
 import styled from "styled-components";
 
 const ButtonStyled = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: ${(props) => props.theme.colors.mainButtonColor};
-  border-radius: ${(props) => props.theme.radiusLoginInputButton};
-  width: 163.5px;
-  height: 40px;
-  font-weight: bold;
-  font-size: 16px;
-  :disabled {
-    opacity: 0.57;
+  .card__button {
+    width: 200px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
   }
 `;
 

@@ -17,7 +17,7 @@ const GameCard = ({ game }: CardGameProps): JSX.Element => {
   const { deleteGameById } = useGame();
   const loggedUser = game.createdBy === id;
 
-  const deleteIcon = <FontAwesomeIcon icon={faTrashCan} />;
+  const deleteIcon = <FontAwesomeIcon icon={faTrashCan} className="icon" />;
 
   return (
     <GameCardStyled>
@@ -40,8 +40,8 @@ const GameCard = ({ game }: CardGameProps): JSX.Element => {
       {loggedUser && (
         <div className="card__icons">
           <Button
-            className="prueba"
-            ariaLabel={"delete"}
+            className="card__button"
+            ariaLabel="delete"
             icon={deleteIcon}
             action={() => deleteGameById(game.id)}
           />

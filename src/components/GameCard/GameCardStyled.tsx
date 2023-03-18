@@ -8,10 +8,11 @@ const GameCardStyled = styled.article`
   color: ${(props) => props.theme.colors.mainColor};
   border-radius: 30px;
   padding: 20px;
-  width: 250px;
+  width: 320px;
   height: 400px;
 
   img {
+    align-self: center;
     padding: 10px;
     border-radius: 35px;
   }
@@ -19,6 +20,7 @@ const GameCardStyled = styled.article`
   .info-container {
     display: flex;
     flex-direction: column;
+    gap: 10px;
 
     &__game-title {
       font-weight: bold;
@@ -37,8 +39,13 @@ const GameCardStyled = styled.article`
     }
   }
 
-  .prueba {
-    border-radius: 50px;
+  .card__icons {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .icon {
+    font-size: 35px;
+    color: ${(props) => props.theme.colors.mainButtonColor};
   }
 `;
 

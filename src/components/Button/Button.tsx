@@ -14,9 +14,10 @@ const Button = ({
   isDisabled,
   icon,
   action,
+  ariaLabel,
 }: ButtonProps): JSX.Element => {
   return (
-    <ButtonStyled onClick={action} disabled={isDisabled}>
+    <ButtonStyled aria-label={ariaLabel} onClick={action} disabled={isDisabled}>
       {text}
       {icon}
     </ButtonStyled>
