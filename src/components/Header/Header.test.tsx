@@ -8,7 +8,7 @@ describe("Given a Header component", () => {
       const expectText = "Logo OpenBoards";
 
       renderWithProviders(<Header />, {
-        user: { isLogged: true, token: "", username: "" },
+        user: { isLogged: true, token: "", username: "", id: "" },
       });
 
       const result = screen.getByAltText(expectText);

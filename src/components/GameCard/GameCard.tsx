@@ -1,5 +1,10 @@
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import useGame from "../../hooks/useGame/useGame";
+import { useAppSelector } from "../../store/hooks";
 import { GameStructure } from "../../types/types";
+import Button from "../Button/Button";
 import GameCardStyled from "./GameCardStyled";
 
 export interface CardGameProps {
@@ -8,6 +13,12 @@ export interface CardGameProps {
 
 const GameCard = ({ game }: CardGameProps): JSX.Element => {
   const localDateFormat = game.date.toLocaleString().split("T")[0];
+  const { id } = useAppSelector((state) => state.user);
+  const { deleteGameById } = useGame();
+  const loggedUser = game.createdBy === id;
+
+  const deleteIcon = <FontAwesomeIcon icon={faTrashCan} />;
+
   return (
     <GameCardStyled>
       <Link to={`detail/${game.id}`}>
@@ -26,6 +37,16 @@ const GameCard = ({ game }: CardGameProps): JSX.Element => {
           </span>
         </div>
       </Link>
+      {loggedUser && (
+        <div className="card__icons">
+          <Button
+            className="prueba"
+            ariaLabel={"delete"}
+            icon={deleteIcon}
+            action={() => deleteGameById(game.id)}
+          />
+        </div>
+      )}
     </GameCardStyled>
   );
 };

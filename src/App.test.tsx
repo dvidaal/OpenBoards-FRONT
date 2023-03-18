@@ -13,7 +13,7 @@ describe("Given an App component", () => {
       const expectedText = "Logo OpenBoards";
 
       renderWithProviders(<App />, {
-        user: { isLogged: true, token: "", username: "" },
+        user: { isLogged: true, token: "", username: "", id: "" },
       });
 
       const result = screen.getByAltText(expectedText);

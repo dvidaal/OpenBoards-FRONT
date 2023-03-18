@@ -27,6 +27,7 @@ describe("Given a LoginPage page", () => {
         isLogged: true,
         token: "",
         username: "",
+        id: "",
       };
 
       renderRouterWithProviders({ user: user }, <LoginPage />);

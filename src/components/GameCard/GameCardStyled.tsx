@@ -3,13 +3,13 @@ import styled from "styled-components";
 const GameCardStyled = styled.article`
   display: flex;
   flex-direction: column;
-  box-shadow: rgba(239, 139, 48, 1) 1px 1px 4px;
+  border: rgba(239, 139, 48, 1) 2px solid;
   font-family: ${(props) => props.theme.mainFont};
   color: ${(props) => props.theme.colors.mainColor};
   border-radius: 30px;
   padding: 20px;
   width: 250px;
-  height: 360px;
+  height: 400px;
 
   img {
     padding: 10px;
@@ -35,6 +35,10 @@ const GameCardStyled = styled.article`
       font-size: 1.2rem;
       color: ${(props) => props.theme.colors.mainButtonColor};
     }
+  }
+
+  .prueba {
+    border-radius: 50px;
   }
 `;
 
