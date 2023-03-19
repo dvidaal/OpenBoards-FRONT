@@ -35,7 +35,7 @@ button {
   border-radius: 20px;
   cursor: pointer;
   border: none;
-  background-color: transparent;
+  background-color: transparent
 }
 
 h1,
