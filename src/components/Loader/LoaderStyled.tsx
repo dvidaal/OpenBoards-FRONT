@@ -7,9 +7,14 @@ const LoaderStyled = styled.article`
   right: 0;
   left: 0;
   max-height: 100vh;
+  position: fixed;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  background-color: rgba(255, 255, 255, 0.6);
+  z-index: 1;
 
   .loader {
     width: 65px;
