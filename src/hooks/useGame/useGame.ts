@@ -10,7 +10,7 @@ import {
   unsetLoaderActionCreator,
 } from "../../store/features/ui/uiSlice";
 import { useAppDispatch } from "../../store/hooks";
-import { GamesData } from "../../types/types";
+import { GamesData, GameStructure } from "../../types/types";
 
 export const useGame = () => {
   const dispatch = useAppDispatch();
@@ -19,6 +19,7 @@ export const useGame = () => {
   const appEndpoint = "/openboards";
   const gameEndpoint = "/";
   const deleteEndpoint = "/delete";
+  const createEndpoint = "/create";
 
   const getGame = useCallback(async () => {
     try {
@@ -109,7 +110,45 @@ export const useGame = () => {
     [apirUrl, dispatch]
   );
 
-  return { getGame, getGameById, deleteGameById };
+  const createGame = useCallback(
+    async (game: GameStructure) => {
+      try {
+        dispatch(setLoaderActionCreator());
+
+        const response = await fetch(
+          `${apirUrl}${appEndpoint}${createEndpoint}`,
+          {
+            method: "POST",
+            body: JSON.stringify(game),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        if (!response.ok) {
+          const errorMessage = "Imposible crear la partida";
+
+          throw new Error(errorMessage);
+        }
+
+        dispatch(unsetLoaderActionCreator());
+      } catch (error: unknown) {
+        dispatch(unsetLoaderActionCreator());
+        dispatch(
+          showModalActionCreator({
+            isError: true,
+            modal: (error as Error).message,
+            isLoading: false,
+          })
+        );
+
+        return (error as Error).message;
+      }
+    },
+    [apirUrl, dispatch]
+  );
+  return { getGame, getGameById, deleteGameById, createGame };
 };
 
 export default useGame;

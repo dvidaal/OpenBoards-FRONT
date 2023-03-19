@@ -136,4 +136,41 @@ describe("Given a useGame custom hook", () => {
       expect(spyDispatch).toHaveBeenCalledWith(showModalActionCreator(modal));
     });
   });
+
+  describe("When the createTip function it is called", () => {
+    test("Then it should call the dispatch method with setModalActionCreator with the message 'The coin was created'", async () => {
+      const {
+        result: {
+          current: { createGame },
+        },
+      } = renderHook(() => useGame(), { wrapper: Wrapper });
+
+      await createGame(mockFirstGame);
+
+      expect(spyDispatch).toHaveBeenCalled();
+    });
+  });
+
+  describe("When the createTip function is called and the response fails", () => {
+    beforeEach(() => {
+      server.resetHandlers(...errorHandlers);
+    });
+    test("Then it should call the dispatch with the openModalActionCreator to show an error modal with the text 'Not possible to load your Tips'", async () => {
+      const {
+        result: {
+          current: { createGame },
+        },
+      } = renderHook(() => useGame(), { wrapper: Wrapper });
+
+      const modal: ModalPayload = {
+        isError: true,
+        modal: "No se ha podido eliminar la partida",
+        isLoading: false,
+      };
+
+      await createGame(mockFirstGame);
+
+      expect(spyDispatch).not.toHaveBeenCalledWith(modal);
+    });
+  });
 });
