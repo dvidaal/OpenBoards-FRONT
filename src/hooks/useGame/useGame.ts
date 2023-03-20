@@ -10,7 +10,7 @@ import {
   unsetLoaderActionCreator,
 } from "../../store/features/ui/uiSlice";
 import { useAppDispatch } from "../../store/hooks";
-import { GamesData, GameStructure } from "../../types/types";
+import { CreateGameStructure, GamesData } from "../../types/types";
 
 export const useGame = () => {
   const dispatch = useAppDispatch();
@@ -111,7 +111,7 @@ export const useGame = () => {
   );
 
   const createGame = useCallback(
-    async (game: GameStructure) => {
+    async (game: CreateGameStructure) => {
       try {
         dispatch(setLoaderActionCreator());
 
@@ -142,8 +142,6 @@ export const useGame = () => {
             isLoading: false,
           })
         );
-
-        return (error as Error).message;
       }
     },
     [apirUrl, dispatch]

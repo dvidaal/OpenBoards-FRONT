@@ -137,8 +137,8 @@ describe("Given a useGame custom hook", () => {
     });
   });
 
-  describe("When the createTip function it is called", () => {
-    test("Then it should call the dispatch method with setModalActionCreator with the message 'The coin was created'", async () => {
+  describe("When the createGame function it is called", () => {
+    test("Then it should call the dispatch method and create the game", async () => {
       const {
         result: {
           current: { createGame },
@@ -151,11 +151,11 @@ describe("Given a useGame custom hook", () => {
     });
   });
 
-  describe("When the createTip function is called and the response fails", () => {
+  describe("When the createGame function is called and the response fails", () => {
     beforeEach(() => {
       server.resetHandlers(...errorHandlers);
     });
-    test("Then it should call the dispatch with the openModalActionCreator to show an error modal with the text 'Not possible to load your Tips'", async () => {
+    test("Then it should call the dispatch with the showFeedbackUser to show an error modal with the text 'No se ha podido eliminar la partida'", async () => {
       const {
         result: {
           current: { createGame },
