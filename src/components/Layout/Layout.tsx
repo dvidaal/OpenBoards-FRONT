@@ -10,6 +10,7 @@ const Layout = (): JSX.Element => {
   return (
     <>
       <Header />
+      {isLoading && <Loader />}
       <ToastContainer
         position="top-center"
         autoClose={5000}
@@ -21,7 +22,6 @@ const Layout = (): JSX.Element => {
         draggable
         pauseOnHover
       />
-      {isLoading && <Loader />}
       <Outlet />
     </>
   );

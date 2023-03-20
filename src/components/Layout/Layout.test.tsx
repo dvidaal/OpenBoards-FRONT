@@ -19,4 +19,17 @@ describe("Given a Layout component", () => {
       expect(result).toBeInTheDocument();
     });
   });
+
+  test("Then it should show a loader with role loader", () => {
+    renderRouterWithProviders(
+      {
+        ui: { isLoading: true, isError: false, modal: "fake" },
+      },
+      <Layout />
+    );
+
+    const expectedResult = screen.getByRole("loader");
+
+    expect(expectedResult).toBeInTheDocument();
+  });
 });

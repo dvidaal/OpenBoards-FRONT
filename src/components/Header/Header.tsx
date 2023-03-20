@@ -14,9 +14,9 @@ const Header = (): JSX.Element => {
             width="89"
             height="38"
           />
+          <NavigationBar />
         </>
       )}
-      <NavigationBar />
     </HeaderStyled>
   );
 };

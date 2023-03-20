@@ -9,7 +9,7 @@ describe("Given a GameDetailCard component", () => {
       const mockGame: GameStructure = {
         game: "",
         avatar: "",
-        date: "",
+        data: "",
         hour: "",
         bio: "",
         plazasLibres: 2,
