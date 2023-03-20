@@ -6,7 +6,7 @@ const initialGameState: GamesData = {
   singleGame: {
     game: "",
     avatar: "",
-    date: "",
+    data: "",
     hour: "",
     bio: "",
     plazasLibres: 2,

@@ -9,6 +9,7 @@ const routes = {
   singleGame: `/${mockGames.singleGame.id}`,
   deleteGame: "/delete",
   findId: "/:id",
+  createGame: "/create",
 };
 
 export const handlers = [
@@ -33,6 +34,11 @@ export const handlers = [
     `${process.env.REACT_APP_URL_API}${routes.endpointApp}${routes.deleteGame}${routes.findId}`,
     async (req, res, ctx) => res(ctx.status(200), ctx.json({ mockGames }))
   ),
+
+  rest.post(
+    `${process.env.REACT_APP_URL_API}${routes.endpointApp}${routes.createGame}`,
+    async (req, res, ctx) => res(ctx.status(201), ctx.json({ mockGames }))
+  ),
 ];
 
 export const errorHandlers = [
@@ -54,5 +60,10 @@ export const errorHandlers = [
   rest.delete(
     `${process.env.REACT_APP_URL_API}${routes.endpointApp}${routes.deleteGame}${routes.findId}`,
     async (req, res, ctx) => res(ctx.status(400))
+  ),
+
+  rest.post(
+    `${process.env.REACT_APP_URL_API}${routes.endpointApp}${routes.createGame}`,
+    async (req, res, ctx) => res(ctx.status(500))
   ),
 ];

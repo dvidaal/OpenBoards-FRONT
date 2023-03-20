@@ -9,7 +9,7 @@ describe("Given a GameCardList component", () => {
       const mockGame: GamesStructure = [
         {
           avatar: "",
-          date: "",
+          data: "",
           game: "Némesis",
           hour: "",
           plazasLibres: 2,
@@ -19,7 +19,7 @@ describe("Given a GameCardList component", () => {
         },
         {
           avatar: "",
-          date: "f",
+          data: "f",
           game: "Virus!",
           hour: "",
           plazasLibres: 2,
@@ -36,7 +36,7 @@ describe("Given a GameCardList component", () => {
             singleGame: {
               game: "",
               avatar: "",
-              date: "",
+              data: "",
               hour: "",
               bio: "",
               plazasLibres: 2,

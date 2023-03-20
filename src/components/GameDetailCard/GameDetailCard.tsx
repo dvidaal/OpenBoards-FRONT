@@ -16,7 +16,7 @@ const GameDetailCard = ({ game }: CardDetailProps): JSX.Element => {
         height="250"
       />
       <h2 className="detail-title">Partida de {game.game}</h2>
-      <span className="detail-date">{game.date}</span>
+      <span className="detail-date">{game.data}</span>
       <span className="detail-freespace">
         {game.plazasLibres} plazas libres
       </span>

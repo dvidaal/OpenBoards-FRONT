@@ -41,4 +41,14 @@ describe("Given an App component", () => {
       expect(showFeedbackUser).toHaveBeenCalledWith(expectedErrorMessage);
     });
   });
+
+  describe("When it fails to render", () => {
+    test("Then it should show the logo of open boards app", () => {
+      renderRouterWithProviders({});
+
+      const homelink = screen.getByRole("img", { name: "Logo Open Boards" });
+
+      expect(homelink).toBeInTheDocument();
+    });
+  });
 });

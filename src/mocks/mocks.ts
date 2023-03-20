@@ -1,9 +1,9 @@
-import { GamesData, GameStructure } from "../types/types";
+import { CreateGameStructure, GamesData, GameStructure } from "../types/types";
 
 export const mockFirstGame: GameStructure = {
   game: "Némesis",
   avatar: "asdfghjkl",
-  date: "sdfsdf",
+  data: "sdfsdf",
   hour: "sfasfa",
   bio: "sdfasdfas",
   plazasLibres: 3,
@@ -14,7 +14,7 @@ export const mockFirstGame: GameStructure = {
 export const mockSecondGame: GameStructure = {
   game: "Némesis",
   avatar: "asdfghjkl",
-  date: "sdfsdf",
+  data: "sdfsdf",
   hour: "sfasfa",
   bio: "sdfasdfas",
   plazasLibres: 3,
@@ -25,4 +25,22 @@ export const mockSecondGame: GameStructure = {
 export const mockGames: GamesData = {
   games: [mockSecondGame, mockFirstGame],
   singleGame: mockFirstGame,
+};
+
+export const mockGameCreate: CreateGameStructure = {
+  game: "Monopoly",
+  avatar: "asdfghjk.jpeg",
+  data: "Viernes 19 de enero",
+  plazasLibres: 0,
+  bio: "Ven a jugar",
+  createdBy: "",
+};
+
+export const mockGameCreateForm = {
+  game: "Monopoly",
+  avatar: "asdfghjk.jpeg",
+  data: "Viernes 19 de enero",
+  plazasLibres: "1",
+  bio: "Ven a jugar",
+  createdBy: "",
 };

@@ -136,4 +136,41 @@ describe("Given a useGame custom hook", () => {
       expect(spyDispatch).toHaveBeenCalledWith(showModalActionCreator(modal));
     });
   });
+
+  describe("When the createGame function it is called", () => {
+    test("Then it should call the dispatch method and create the game", async () => {
+      const {
+        result: {
+          current: { createGame },
+        },
+      } = renderHook(() => useGame(), { wrapper: Wrapper });
+
+      await createGame(mockFirstGame);
+
+      expect(spyDispatch).toHaveBeenCalled();
+    });
+  });
+
+  describe("When the createGame function is called and the response fails", () => {
+    beforeEach(() => {
+      server.resetHandlers(...errorHandlers);
+    });
+    test("Then it should call the dispatch with the showFeedbackUser to show an error modal with the text 'No se ha podido eliminar la partida'", async () => {
+      const {
+        result: {
+          current: { createGame },
+        },
+      } = renderHook(() => useGame(), { wrapper: Wrapper });
+
+      const modal: ModalPayload = {
+        isError: true,
+        modal: "No se ha podido eliminar la partida",
+        isLoading: false,
+      };
+
+      await createGame(mockFirstGame);
+
+      expect(spyDispatch).not.toHaveBeenCalledWith(modal);
+    });
+  });
 });

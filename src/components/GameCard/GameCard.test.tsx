@@ -17,7 +17,7 @@ describe("Given a GameCard component", () => {
     test("Then it should show a GameCard with an image", () => {
       const mockGame: GameStructure = {
         avatar: "fake",
-        date: "fake",
+        data: "fake",
         game: "fake",
         hour: "fake",
         plazasLibres: 2,
