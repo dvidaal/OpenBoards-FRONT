@@ -12,7 +12,7 @@ const initialState: GamesData = {
   singleGame: {
     game: "Némesis",
     avatar: "asdfghjkl",
-    date: "sdfsdf",
+    data: "sdfsdf",
     hour: "sfasfa",
     bio: "sdfasdfas",
     plazasLibres: 3,
@@ -25,7 +25,7 @@ const mockGame: GamesStructure = [
   {
     game: "Némesis",
     avatar: "asdfghjkl",
-    date: "dadas",
+    data: "dadas",
     hour: "sfasfa",
     bio: "sdfasdfas",
     plazasLibres: 3,
@@ -39,7 +39,7 @@ const expectedFinalState: GamesData = {
     {
       game: "Némesis",
       avatar: "asdfghjkl",
-      date: "dadas",
+      data: "dadas",
       hour: "sfasfa",
       bio: "sdfasdfas",
       plazasLibres: 3,
@@ -50,7 +50,7 @@ const expectedFinalState: GamesData = {
   singleGame: {
     game: "Némesis",
     avatar: "asdfghjkl",
-    date: "sdfsdf",
+    data: "sdfsdf",
     hour: "sfasfa",
     bio: "sdfasdfas",
     plazasLibres: 3,
@@ -74,7 +74,7 @@ describe("Given gameReducer reducer", () => {
       const mockSingleGame: GameStructure = {
         game: "Némesis",
         avatar: "asdfghjkl",
-        date: "sdfsdf",
+        data: "sdfsdf",
         hour: "sfasfa",
         bio: "sdfasdfas",
         plazasLibres: 3,

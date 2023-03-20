@@ -1,6 +1,7 @@
 import { RouteObject, createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import ProtectedRoute from "../components/ProtectedRoute/ProtectedRoute";
+import CreatePage from "../pages/CreatePage/CreatePage";
 import DetailPage from "../pages/DetailPage/DetailPage";
 import HomePage from "../pages/HomePage/HomePage";
 import LoginPage from "../pages/LoginPage/LoginPage";
@@ -15,7 +16,11 @@ const routes: RouteObject[] = [
       { path: endpoints.login, element: <LoginPage /> },
       {
         path: "detail/:id",
-        element: <DetailPage />,
+        element: <ProtectedRoute element={<DetailPage />} />,
+      },
+      {
+        path: "/create",
+        element: <ProtectedRoute element={<CreatePage />} />,
       },
     ],
   },
