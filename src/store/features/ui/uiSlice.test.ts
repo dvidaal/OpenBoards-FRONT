@@ -12,6 +12,7 @@ describe("Given a uiReducer reducer", () => {
         modal: "",
         isError: false,
         isLoading: false,
+        isSucces: false,
       };
 
       const modalMessage = "Wrong credentials";
@@ -20,6 +21,7 @@ describe("Given a uiReducer reducer", () => {
         modal: modalMessage,
         isError: true,
         isLoading: false,
+        isSucces: false,
       };
 
       const showModal = showModalActionCreator(modalPayload);
@@ -35,12 +37,14 @@ describe("Given a uiReducer reducer", () => {
         modal: "",
         isError: false,
         isLoading: false,
+        isSucces: false,
       };
 
       const modalPayload: ModalPayload = {
         modal: "",
         isError: false,
         isLoading: false,
+        isSucces: false,
       };
 
       const unsetLoader = unsetLoaderActionCreator();
