@@ -50,6 +50,7 @@ describe("Given a useGame custom hook", () => {
         isError: true,
         modal: "Imposible mostrar los juegos",
         isLoading: false,
+        isSucces: false,
       };
 
       await getGame();
@@ -90,6 +91,7 @@ describe("Given a useGame custom hook", () => {
         isError: true,
         modal: "Imposible mostrar el juego que estas buscando",
         isLoading: false,
+        isSucces: false,
       };
 
       await getGameById("1234567");
@@ -129,6 +131,7 @@ describe("Given a useGame custom hook", () => {
         isError: true,
         modal: "No se ha podido eliminar la partida",
         isLoading: false,
+        isSucces: false,
       };
 
       await deleteGameById("1234567");
@@ -166,6 +169,7 @@ describe("Given a useGame custom hook", () => {
         isError: true,
         modal: "No se ha podido eliminar la partida",
         isLoading: false,
+        isSucces: false,
       };
 
       await createGame(mockFirstGame);

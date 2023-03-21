@@ -42,6 +42,7 @@ export const useGame = () => {
           isError: true,
           modal: (error as Error).message,
           isLoading: false,
+          isSucces: false,
         })
       );
       return (error as Error).message;
@@ -68,6 +69,7 @@ export const useGame = () => {
             isError: true,
             modal: (error as Error).message,
             isLoading: false,
+            isSucces: false,
           })
         );
         return (error as Error).message;
@@ -94,6 +96,14 @@ export const useGame = () => {
         }
 
         dispatch(deleteGameByIdActionCreator(id));
+        dispatch(
+          showModalActionCreator({
+            isSucces: true,
+            isError: false,
+            isLoading: false,
+            modal: "Partida eliminada correctamente",
+          })
+        );
         dispatch(unsetLoaderActionCreator());
       } catch (error) {
         dispatch(
@@ -101,6 +111,7 @@ export const useGame = () => {
             isError: true,
             modal: (error as Error).message,
             isLoading: false,
+            isSucces: false,
           })
         );
 
@@ -131,7 +142,14 @@ export const useGame = () => {
 
           throw new Error(errorMessage);
         }
-
+        dispatch(
+          showModalActionCreator({
+            isSucces: true,
+            isError: false,
+            isLoading: false,
+            modal: "Partida creada correctamente",
+          })
+        );
         dispatch(unsetLoaderActionCreator());
       } catch (error: unknown) {
         dispatch(unsetLoaderActionCreator());
@@ -140,6 +158,7 @@ export const useGame = () => {
             isError: true,
             modal: (error as Error).message,
             isLoading: false,
+            isSucces: false,
           })
         );
       }

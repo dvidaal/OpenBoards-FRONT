@@ -74,6 +74,7 @@ describe("Given a useUser custom hook", () => {
         modal: "Usuario o contraseña incorrectos",
         isError: true,
         isLoading: false,
+        isSucces: false,
       };
 
       await loginUser(userCredentials);

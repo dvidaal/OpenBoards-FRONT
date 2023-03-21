@@ -54,6 +54,7 @@ const useUser = (): UserStructure => {
           modal: "Usuario o contraseña incorrectos",
           isError: true,
           isLoading: false,
+          isSucces: false,
         })
       );
     }

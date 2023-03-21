@@ -1,10 +1,11 @@
 import { screen } from "@testing-library/react";
 import App from "./App";
-import { showFeedbackUser } from "./modals/modals";
+import { showFeedbackUser, showSuccesFeedback } from "./modals/modals";
 import { renderRouterWithProviders } from "./testUtils/renderWithProviders";
 
 jest.mock("./modals/modals", () => ({
   showFeedbackUser: jest.fn(),
+  showSuccesFeedback: jest.fn(),
 }));
 
 describe("Given an App component", () => {
@@ -33,12 +34,31 @@ describe("Given an App component", () => {
             modal: "Oh",
             isError: true,
             isLoading: false,
+            isSucces: false,
           },
         },
         <App />
       );
 
       expect(showFeedbackUser).toHaveBeenCalledWith(expectedErrorMessage);
+    });
+
+    test("Then it should render ToastContainer with success message", () => {
+      const expectedSuccessMessage = "Ok";
+
+      renderRouterWithProviders(
+        {
+          ui: {
+            modal: "Ok",
+            isError: false,
+            isLoading: false,
+            isSucces: true,
+          },
+        },
+        <App />
+      );
+
+      expect(showSuccesFeedback).toHaveBeenCalledWith(expectedSuccessMessage);
     });
   });
 
