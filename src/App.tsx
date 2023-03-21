@@ -1,19 +1,25 @@
 import { useEffect } from "react";
 import Layout from "./components/Layout/Layout";
 import useToken from "./hooks/useToken/useToken";
-import { showFeedbackUser } from "./modals/modals";
+import { showFeedbackUser, showSuccesFeedback } from "./modals/modals";
 import { useAppSelector } from "./store/hooks";
 
 const App = () => {
   const { getToken } = useToken();
+  const { isError } = useAppSelector((state) => state.ui);
+  const { isSucces } = useAppSelector((state) => state.ui);
   const { modal } = useAppSelector((state) => state.ui);
 
   useEffect(() => {
     getToken();
-    if (modal) {
+    if (isError) {
       showFeedbackUser(modal);
     }
-  }, [getToken, modal]);
+
+    if (isSucces) {
+      showSuccesFeedback(modal);
+    }
+  }, [getToken, isError, isSucces, modal]);
 
   return (
     <div className="container">

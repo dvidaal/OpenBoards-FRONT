@@ -5,6 +5,7 @@ export const initialUiState: ModalPayload = {
   modal: "",
   isError: false,
   isLoading: false,
+  isSucces: false,
 };
 
 const uiSlice = createSlice({
@@ -18,6 +19,7 @@ const uiSlice = createSlice({
       ...currentUiState,
       modal: action.payload.modal,
       isError: action.payload.isError,
+      isSucces: action.payload.isSucces,
     }),
 
     setLoader: (currentUiState): ModalPayload => ({

@@ -23,7 +23,7 @@ describe("Given a Layout component", () => {
   test("Then it should show a loader with role loader", () => {
     renderRouterWithProviders(
       {
-        ui: { isLoading: true, isError: false, modal: "fake" },
+        ui: { isLoading: true, isError: false, modal: "fake", isSucces: false },
       },
       <Layout />
     );

@@ -1,5 +1,5 @@
 import { toast } from "react-toastify";
-import { showFeedbackUser } from "./modals";
+import { showFeedbackUser, showSuccesFeedback } from "./modals";
 
 beforeAll(() => {
   jest.clearAllMocks();
@@ -21,6 +21,20 @@ describe("Given the modals functions", () => {
       showFeedbackUser(errorMessage);
 
       expect(toast.error).toHaveBeenCalledWith(errorMessage, expectedObject);
+    });
+  });
+
+  describe("When it is rendered with a non-error and the message 'Partida eliminada correctamente'", () => {
+    test("Then it should render the ToastContainer Component for success", () => {
+      const successMessage = "Partida eliminada correctamente";
+      const expectedObject = {};
+
+      showSuccesFeedback(successMessage);
+
+      expect(toast.success).toHaveBeenCalledWith(
+        successMessage,
+        expectedObject
+      );
     });
   });
 });
