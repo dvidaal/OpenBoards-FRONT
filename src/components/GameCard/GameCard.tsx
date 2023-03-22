@@ -25,8 +25,8 @@ const GameCard = ({ game }: CardGameProps): JSX.Element => {
           <img
             src={game.avatar}
             alt="Cover del juego de mesa"
-            width="200"
-            height="200"
+            width="210"
+            height="210"
             className="game-image"
           />
           <h2 className="info-container__game-title">{game.game}</h2>

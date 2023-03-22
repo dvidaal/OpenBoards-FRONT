@@ -15,6 +15,7 @@ const GameCardStyled = styled.article`
     align-self: center;
     padding: 10px;
     border-radius: 35px;
+    object-fit: cover;
   }
 
   .info-container {

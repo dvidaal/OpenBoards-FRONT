@@ -20,8 +20,8 @@ const NavigationBar = (): JSX.Element => {
           <img
             src="/blades.webp"
             alt="Espadas para crear partida"
-            width="36"
-            height="36"
+            width="34"
+            height="34"
             aria-label="blades"
           />
         </NavLink>
