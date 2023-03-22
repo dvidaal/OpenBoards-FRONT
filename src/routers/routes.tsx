@@ -5,12 +5,14 @@ import CreatePage from "../pages/CreatePage/CreatePage";
 import DetailPage from "../pages/DetailPage/DetailPage";
 import HomePage from "../pages/HomePage/HomePage";
 import LoginPage from "../pages/LoginPage/LoginPage";
+import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 import { endpoints } from "./types";
 
 const routes: RouteObject[] = [
   {
     path: "/",
     element: <App />,
+    errorElement: <NotFoundPage />,
     children: [
       { path: "/", element: <ProtectedRoute element={<HomePage />} /> },
       { path: endpoints.login, element: <LoginPage /> },
