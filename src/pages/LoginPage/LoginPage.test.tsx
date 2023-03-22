@@ -1,10 +1,7 @@
 import { screen } from "@testing-library/react";
 import * as ReactRouterDom from "react-router-dom";
 import LoginPage from "./LoginPage";
-import {
-  renderRouterWithProviders,
-  renderWithProviders,
-} from "../../testUtils/renderWithProviders";
+import { renderRouterWithProviders } from "../../testUtils/renderWithProviders";
 import { UserState } from "../../store/features/user/types";
 
 jest.mock("react-router-dom", () => ({
@@ -15,7 +12,7 @@ jest.mock("react-router-dom", () => ({
 describe("Given a LoginPage page", () => {
   describe("When rendered", () => {
     test("Then it should show an image", () => {
-      renderWithProviders(<LoginPage />);
+      renderRouterWithProviders({}, <LoginPage />);
 
       const expectedImage = screen.getByRole("img");
 

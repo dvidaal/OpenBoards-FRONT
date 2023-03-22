@@ -18,7 +18,7 @@ const NavigationBar = (): JSX.Element => {
         </NavLink>
         <NavLink to="/create" title="blades">
           <img
-            src="blades.webp"
+            src="/blades.webp"
             alt="Espadas para crear partida"
             width="36"
             height="36"

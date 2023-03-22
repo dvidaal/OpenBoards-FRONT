@@ -12,6 +12,7 @@ import {
   unsetLoaderActionCreator,
 } from "../../store/features/ui/uiSlice";
 import useToken from "../useToken/useToken";
+import { useNavigate } from "react-router-dom";
 
 export interface UserStructure {
   loginUser: (userCredentials: UserCredentials) => Promise<void>;
@@ -21,6 +22,7 @@ export interface UserStructure {
 const useUser = (): UserStructure => {
   const dispatch = useAppDispatch();
   const { removeToken } = useToken();
+  const navigateTo = useNavigate();
 
   const apirUrl = process.env.REACT_APP_URL_API;
   const appEndpoint = "/users";
@@ -61,6 +63,7 @@ const useUser = (): UserStructure => {
   };
 
   const logoutUser = () => {
+    navigateTo("/login");
     removeToken();
     dispatch(logoutUserActionCreator());
   };

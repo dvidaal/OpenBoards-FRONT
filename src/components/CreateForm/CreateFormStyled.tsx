@@ -18,6 +18,13 @@ const CreateFormStyled = styled.form`
       padding: 10px 16px;
       background: ${(props) => props.theme.colors.inputLoginFormBackground};
       color: ${(props) => props.theme.colors.mainColor};
+
+      &--date {
+        background-color: #000000;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+      }
     }
 
     &__button {
