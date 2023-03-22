@@ -1,4 +1,5 @@
 import { useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   deleteGameByIdActionCreator,
   loadGamesActionCreator,
@@ -14,6 +15,7 @@ import { CreateGameStructure, GamesData } from "../../types/types";
 
 export const useGame = () => {
   const dispatch = useAppDispatch();
+  const navigateTo = useNavigate();
 
   const apirUrl = process.env.REACT_APP_URL_API;
   const appEndpoint = "/openboards";
@@ -151,6 +153,7 @@ export const useGame = () => {
           })
         );
         dispatch(unsetLoaderActionCreator());
+        navigateTo("/");
       } catch (error: unknown) {
         dispatch(unsetLoaderActionCreator());
         dispatch(
@@ -163,7 +166,7 @@ export const useGame = () => {
         );
       }
     },
-    [apirUrl, dispatch]
+    [apirUrl, dispatch, navigateTo]
   );
   return { getGame, getGameById, deleteGameById, createGame };
 };

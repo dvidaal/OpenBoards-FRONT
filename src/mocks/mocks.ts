@@ -39,8 +39,8 @@ export const mockGameCreate: CreateGameStructure = {
 export const mockGameCreateForm = {
   game: "Monopoly",
   avatar: "asdfghjk.jpeg",
-  data: "Viernes 19 de enero",
+  data: "1111-11-11",
   plazasLibres: "1",
   bio: "Ven a jugar",
-  createdBy: "",
+  createdBy: "64062ae6a801af8faeaee9ab",
 };

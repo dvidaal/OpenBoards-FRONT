@@ -1,7 +1,10 @@
 import { act, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { mockGameCreateForm } from "../../mocks/mocks";
-import { renderWithProviders } from "../../testUtils/renderWithProviders";
+import {
+  renderRouterWithProviders,
+  renderWithProviders,
+} from "../../testUtils/renderWithProviders";
 import CreateForm from "./CreateForm";
 
 const mockedSubmit = jest.fn();
@@ -23,19 +26,29 @@ describe("Given a CreatePage page", () => {
 
   describe("When the user submits the form with the information of the game", () => {
     test("Then the createGame function should be called", async () => {
-      const game = "Juego propuesto";
+      const game = "Juego Propuesto";
       const avatar = "Introduce cover del juego";
       const spaces = "Plazas libres";
       const date = "Selecciona fecha";
       const bio = "Cuenta a los demás sobre la partida";
       const buttonText = "Crear partida";
 
-      renderWithProviders(<CreateForm />);
+      renderRouterWithProviders(
+        {
+          user: {
+            isLogged: true,
+            token: "",
+            username: "",
+            id: "64062ae6a801af8faeaee9ab",
+          },
+        },
+        <CreateForm />
+      );
 
-      const gameInput = screen.getByPlaceholderText(game);
+      const gameInput = screen.getByRole("combobox", { name: game });
       const avatarInput = screen.getByPlaceholderText(avatar);
-      const spacesInput = screen.getByPlaceholderText(spaces);
-      const dateInput = screen.getByPlaceholderText(date);
+      const spacesInput = screen.getByLabelText(spaces);
+      const dateInput = screen.getByLabelText(date);
       const bioInput = screen.getByPlaceholderText(bio);
       const submitButton = screen.getByRole("button", { name: buttonText });
 
@@ -43,9 +56,11 @@ describe("Given a CreatePage page", () => {
         async () =>
           await userEvent.selectOptions(gameInput, mockGameCreateForm.game)
       );
+
       await act(
         async () => await userEvent.type(avatarInput, mockGameCreateForm.avatar)
       );
+
       await act(
         async () =>
           await userEvent.type(
@@ -53,9 +68,12 @@ describe("Given a CreatePage page", () => {
             mockGameCreateForm.plazasLibres.toString()
           )
       );
+
+      await act(async () => await userEvent.click(dateInput));
       await act(
         async () => await userEvent.type(dateInput, mockGameCreateForm.data)
       );
+
       await act(
         async () => await userEvent.type(bioInput, mockGameCreateForm.bio)
       );

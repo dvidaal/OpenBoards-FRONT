@@ -38,6 +38,7 @@ const CreateForm = (): JSX.Element => {
     createData.avatar === "" ||
     createData.game === "" ||
     createData.bio === "" ||
+    createData.data === "" ||
     createData.plazasLibres === 0;
 
   return (
@@ -70,8 +71,9 @@ const CreateForm = (): JSX.Element => {
         />
       </label>
       <label>
-        ¿Cuántas plazas restantes quieres abrir?
+        ¿Cuántas plazas quieres abrir?
         <input
+          aria-label="Plazas libres"
           placeholder="Plazas libres"
           type="number"
           name="plazasLibres"
@@ -82,10 +84,11 @@ const CreateForm = (): JSX.Element => {
       <label>
         Fecha de partida
         <input
+          aria-label="Selecciona fecha"
           placeholder="Selecciona fecha"
-          type="text"
+          type="date"
           name="data"
-          className="form__field"
+          className="form__field form__field--date"
           onChange={handleCreateDataChange}
         />
       </label>

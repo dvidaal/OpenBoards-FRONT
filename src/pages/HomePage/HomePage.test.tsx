@@ -3,6 +3,12 @@ import { renderRouterWithProviders } from "../../testUtils/renderWithProviders";
 import { GamesStructure } from "../../types/types";
 import HomePage from "./HomePage";
 
+const mockedUsedNavigate = jest.fn();
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+  useNavigate: () => mockedUsedNavigate,
+}));
+
 describe("Given a HomePage component", () => {
   describe("When rendered", () => {
     test("Then it should show a list of games and one with the name game 'Némesis'", () => {
