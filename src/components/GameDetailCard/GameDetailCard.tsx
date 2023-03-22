@@ -8,13 +8,15 @@ interface CardDetailProps {
 const GameDetailCard = ({ game }: CardDetailProps): JSX.Element => {
   return (
     <GameDetailCardStyled>
-      <img
-        src={game.avatar}
-        alt="Cover del juego"
-        className="detail-image"
-        width="250"
-        height="250"
-      />
+      <div className="image-container">
+        <img
+          src={game.avatar}
+          alt="Cover del juego"
+          className="image-container__detail-image"
+          width="250"
+          height="250"
+        />
+      </div>
       <h2 className="detail-title">Partida de {game.game}</h2>
       <span className="detail-date">{game.data}</span>
       <span className="detail-freespace">
