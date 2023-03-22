@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const GameDetailCardStyled = styled.article`
   display: flex;
+  align-items: center;
   flex-direction: column;
   color: ${(props) => props.theme.colors.mainColor};
   font-family: ${(props) => props.theme.mainFont};
