@@ -43,6 +43,16 @@ const LoginFormStyled = styled.form`
     gap: 8px;
     margin: 20px;
   }
+
+  .register {
+    display: flex;
+    flex-direction: column;
+
+    &__info {
+      margin-top: 80px;
+      color: ${(props) => props.theme.colors.mainColor};
+    }
+  }
 `;
 
 export default LoginFormStyled;

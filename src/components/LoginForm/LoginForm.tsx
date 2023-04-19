@@ -55,6 +55,9 @@ const LoginForm = (): JSX.Element => {
         />
       </label>
       <Button isDisabled={isDisabled} text="Entrar" className="form__button" />
+      <div className="register">
+        <span className="register__info">¿Aún no estas registrado?</span>
+      </div>
     </LoginFormStyled>
   );
 };

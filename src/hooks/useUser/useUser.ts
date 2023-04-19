@@ -102,6 +102,7 @@ const useUser = (): UserStructure => {
           isSucces: true,
         })
       );
+      navigateTo("/login");
     } catch {
       dispatch(
         showModalActionCreator({
