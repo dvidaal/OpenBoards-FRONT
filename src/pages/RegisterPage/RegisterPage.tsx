@@ -1,3 +1,4 @@
+import RegisterForm from "../../components/RegisterForm/RegisterForm";
 import RegisterPageStyled from "./RegisterPageStyled";
 
 const RegisterPage = (): JSX.Element => {
@@ -6,6 +7,7 @@ const RegisterPage = (): JSX.Element => {
       <header className="register-page">
         <h1 className="register-page__title">Crea tu cuenta de Open Boards</h1>
       </header>
+      <RegisterForm />
     </RegisterPageStyled>
   );
 };

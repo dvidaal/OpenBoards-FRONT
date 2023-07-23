@@ -2,6 +2,7 @@ import { useState } from "react";
 import useUser from "../../hooks/useUser/useUser";
 import Button from "../Button/Button";
 import LoginFormStyled from "./LoginFormStyled";
+import { Link } from "react-router-dom";
 
 const LoginForm = (): JSX.Element => {
   const { loginUser } = useUser();
@@ -57,6 +58,9 @@ const LoginForm = (): JSX.Element => {
       <Button isDisabled={isDisabled} text="Entrar" className="form__button" />
       <div className="register">
         <span className="register__info">¿Aún no estas registrado?</span>
+        <Link to="/register" className="register__account">
+          Crear cuenta
+        </Link>
       </div>
     </LoginFormStyled>
   );

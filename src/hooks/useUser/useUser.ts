@@ -30,7 +30,7 @@ const useUser = (): UserStructure => {
   const { removeToken } = useToken();
   const navigateTo = useNavigate();
 
-  const apirUrl = process.env.REACT_APP_URL_API;
+  const apirUrl = process.env.REACT_APP_URL_API!;
   const appEndpoint = "/users";
   const loginEndpoint = "/login";
   const registerEndpoint = "/register";

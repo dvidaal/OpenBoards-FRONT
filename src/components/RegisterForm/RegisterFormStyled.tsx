@@ -1,13 +1,12 @@
 import styled from "styled-components";
 
-const LoginFormStyled = styled.form`
+const RegisterFormStyled = styled.form`
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
+  align-items: center;
   font-family: ${(props) => props.theme.mainFont};
 
-  .form {
+  .register-form {
     &__field {
       display: flex;
       flex-direction: column;
@@ -33,6 +32,7 @@ const LoginFormStyled = styled.form`
       :disabled {
         opacity: 0.57;
       }
+      margin-top: 50px;
     }
   }
 
@@ -42,26 +42,9 @@ const LoginFormStyled = styled.form`
     flex-direction: column;
     gap: 8px;
     margin: 20px;
-  }
-
-  .register {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-
-    &__info {
-      margin-top: 80px;
-      color: ${(props) => props.theme.colors.mainColor};
-      font-size: 1rem;
-    }
-
-    &__account {
-      color: ${(props) => props.theme.colors.mainButtonColor};
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
+    font-size: 14px;
+    font-weight: bold;
   }
 `;
 
-export default LoginFormStyled;
+export default RegisterFormStyled;
