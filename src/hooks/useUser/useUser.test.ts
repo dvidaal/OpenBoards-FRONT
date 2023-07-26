@@ -11,7 +11,11 @@ import {
   logoutUserActionCreator,
 } from "../../store/features/user/userSlice";
 import ModalPayload from "../../types/types";
-import { CustomTokenPayload, UserCredentials } from "./types";
+import {
+  CustomTokenPayload,
+  RegisterCredentials,
+  UserCredentials,
+} from "./types";
 import useUser from "./useUser";
 
 jest.mock("jwt-decode", () => jest.fn());
@@ -36,6 +40,12 @@ const userCredentials: UserCredentials = {
 const mockTokenPayload: CustomTokenPayload = {
   username: "lDidi",
   id: "64062ae6a801af8faeaee9ab",
+};
+
+const registerUserCredentials: RegisterCredentials = {
+  username: "testuser",
+  email: "test@user.com",
+  password: "testuser123",
 };
 
 const mockToken = "someToken";
@@ -104,6 +114,55 @@ describe("Given a useUser custom hook", () => {
       await logoutUser();
 
       expect(spy).toHaveBeenCalledWith(logoutUserActionCreator());
+    });
+  });
+
+  describe("When a user tries to register", () => {
+    test("Then it should response with a 201 status code", async () => {
+      const {
+        result: {
+          current: { registerUser },
+        },
+      } = renderHook(() => useUser(), { wrapper: Wrapper });
+
+      await registerUser(registerUserCredentials);
+
+      expect(spy).toHaveBeenCalledWith(
+        showModalActionCreator({
+          isError: false,
+          isLoading: false,
+          isSucces: true,
+          modal: "Usuario correctamente creado.",
+        })
+      );
+    });
+  });
+
+  describe("When the response is not OK", () => {
+    beforeAll(() => {
+      server.resetHandlers(...errorHandlers);
+    });
+    test("Then it should response with a 404 status code", async () => {
+      const {
+        result: {
+          current: { registerUser },
+        },
+      } = renderHook(() => useUser(), { wrapper: Wrapper });
+
+      const modal: ModalPayload = {
+        modal: "No se ha podido crear el usuario.",
+        isError: true,
+        isLoading: false,
+        isSucces: false,
+      };
+
+      await registerUser({
+        email: "",
+        password: "",
+        username: "",
+      });
+
+      expect(spy).toHaveBeenLastCalledWith(showModalActionCreator(modal));
     });
   });
 });
