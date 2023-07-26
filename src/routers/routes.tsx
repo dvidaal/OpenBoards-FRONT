@@ -7,6 +7,7 @@ import HomePage from "../pages/HomePage/HomePage";
 import LoginPage from "../pages/LoginPage/LoginPage";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 import { endpoints } from "./types";
+import RegisterPage from "../pages/RegisterPage/RegisterPage";
 
 const routes: RouteObject[] = [
   {
@@ -16,6 +17,7 @@ const routes: RouteObject[] = [
     children: [
       { path: "/", element: <ProtectedRoute element={<HomePage />} /> },
       { path: endpoints.login, element: <LoginPage /> },
+      { path: endpoints.register, element: <RegisterPage /> },
       {
         path: "detail/:id",
         element: <ProtectedRoute element={<DetailPage />} />,
